@@ -470,4 +470,9 @@
   color: white;
 }
 
+/* Quill Editor Text Alignment */
+p.ql-align-justify {
+  text-align: justify;
+}
+
 /*# sourceMappingURL=main.css.map */

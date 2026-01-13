@@ -300,6 +300,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
       };
     }
   } catch (e) {
+    console.error('[getServerSideProps][Product] Error:', e);
     return {
       notFound: true,
     };

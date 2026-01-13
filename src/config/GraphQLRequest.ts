@@ -1,8 +1,9 @@
 import { GraphQLClient } from 'graphql-request';
 
-// const Client = new GraphQLClient('https://naubaun.herokuapp.com/graphql', {
-// const Client = new GraphQLClient('https://api.biznian.com/graphql', {
-const Client = new GraphQLClient('https://nobarun.xyz/graphql', {
+const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4500/graphql';
+console.log('[GraphQLClient] Using API URL:', apiUrl);
+
+const Client = new GraphQLClient(apiUrl, {
   headers: {},
 });
 

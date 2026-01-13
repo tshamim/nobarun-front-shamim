@@ -5,13 +5,23 @@ import { getTheme } from '../../utils/utils';
 const StyledHeader = styled.header`
   position: relative;
   z-index: 1;
-  /* padding: 1rem 0; */
   height: 7rem;
   background: ${getTheme('colors.body.paper')};
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
 
   .logo {
     img {
       display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover img {
+      transform: scale(1.02);
     }
   }
   .icon-holder {
@@ -45,6 +55,11 @@ const StyledHeader = styled.header`
     }
     .header-right {
       display: none !important;
+    }
+    
+    /* Improve mobile search box spacing */
+    .searchbox {
+      width: 100%;
     }
   }
 `;

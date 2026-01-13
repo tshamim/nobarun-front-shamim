@@ -4,7 +4,7 @@ import { getTheme } from '../../utils/utils';
 import Card from '../Card';
 
 export const StyledProductCard1 = styled(Card)`
-  transition: height 1250ms ease-in-out;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin: auto;
   overflow: hidden;
   display: flex;
@@ -12,16 +12,37 @@ export const StyledProductCard1 = styled(Card)`
   justify-content: space-between;
   width: 385px;
   max-width: 385px;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  position: relative;
+  z-index: 1;
+
   &:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: #1ca346;
+    z-index: 10;
+
     .details {
       height: 100%;
       .add-cart {
         display: flex;
       }
     }
+    
     .image-holder {
       .extra-icons {
         display: block;
+      }
+
+      &::before {
+        opacity: 1;
+      }
+
+      img {
+        transform: scale(1.03);
       }
     }
   }
@@ -70,12 +91,30 @@ export const StyledProductCard1 = styled(Card)`
     position: relative;
     display: inline-block;
     text-align: center;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+
     img {
-      /* height: 370px; */
       width: 100%;
       max-height: 385px;
-      /* padding: 20px 10px; */
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      object-fit: cover;
     }
+
     .extra-icons {
       display: none;
       position: absolute;
@@ -91,14 +130,29 @@ export const StyledProductCard1 = styled(Card)`
   }
 
   .details {
-    padding: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
 
-    .title,
+    .title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: #1ca346;
+      }
+    }
+    
     .categories {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    
     h3.title {
       font-size: 18px;
       @media only screen and (max-width: 600px) {
@@ -133,9 +187,6 @@ export const StyledProductCard1 = styled(Card)`
       .add-cart {
         display: flex;
       }
-      // .title {
-      //   margin-top: 1rem;
-      // }
     }
   }
 `;

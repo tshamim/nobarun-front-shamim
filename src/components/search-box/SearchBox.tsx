@@ -80,6 +80,13 @@ const SearchBox: React.FC<{ count: number | string }> = ({ count }) => {
         zIndex={99}
         maxHeight="22rem"
         overflow="auto"
+        style={{
+          borderRadius: '8px',
+          marginTop: '8px',
+          left: 0,
+          right: 0,
+          animation: resultList.length > 0 || loading || keyword !== '' ? 'fadeIn 0.3s ease' : 'none',
+        }}
       >
         {loading ? (
           <FlexBox
@@ -97,6 +104,11 @@ const SearchBox: React.FC<{ count: number | string }> = ({ count }) => {
                 setKeyword('');
                 setResultList([]);
                 Router.push(`/${item.slug}`);
+              }}
+              style={{
+                transition: 'all 0.3s ease',
+                borderRadius: '6px',
+                margin: '4px 8px',
               }}
             >
               <FlexBox alignItems="center">

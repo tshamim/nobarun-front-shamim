@@ -1,4 +1,3 @@
-import Image from '@component/Image';
 import Link from 'next/link';
 import React from 'react';
 import { CSSProperties } from 'styled-components';
@@ -58,44 +57,29 @@ const ProductCard1: React.FC<ProductCard1Props> = ({
           <Box flex="1 1 0" minWidth="0px" mr="0.5rem">
             <Link href={`/${id}`}>
               <a>
-                <FlexBox alignItems="center">
-                  <Image
-                    data-src={
-                      process.env.NEXT_PUBLIC_IMAGE_URL + props.categoryIcon
-                    }
-                    height="30px"
-                    width="30px"
-                    mr=".3rem"
-                    display="block"
-                    // alt={props.categoryName}
-                    alt={`Thumbnail Product Id ${id}`}
-                    className="lazyload"
-                  />
-                  <SemiSpan
-                    className="title"
-                    color="text.hint"
-                    title={props.categoryName}
-                  >
-                    {props.categoryName}
-                  </SemiSpan>
-                </FlexBox>
-              </a>
-            </Link>
-            <Link href={`/${id}`}>
-              <a>
                 <H3
                   className="title"
                   textAlign="left"
                   fontWeight="600"
                   color="text.secondary"
-                  mt="10px"
-                  mb="5px"
+                  mb="10px"
                   title={title}
                 >
                   {title}
                 </H3>
               </a>
             </Link>
+            {price && (
+              <Box mb="8px">
+                <H3
+                  fontWeight="700"
+                  color="primary.main"
+                  fontSize="20px"
+                >
+                  ৳{price.toLocaleString()}
+                </H3>
+              </Box>
+            )}
             <FlexBox alignItems="center">
               <Rating value={rating || 0} outof={5} color="warn" readonly />
               <SemiSpan ml=".5rem" color="#696565">

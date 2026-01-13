@@ -1,9 +1,9 @@
 import React, {
-  ReactElement,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
+    ReactElement,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
 import StyledSticky from './SickyStyle';
 
@@ -86,7 +86,7 @@ const Sticky: React.FC<StickyProps> = ({
       fixed={fixed}
       ref={elementRef}
     >
-      {React.cloneElement(children, { isfixed: fixed.toString() })}
+      {React.isValidElement(children) ? React.cloneElement(children, { isfixed: fixed.toString() }) : children}
     </StyledSticky>
   );
 };

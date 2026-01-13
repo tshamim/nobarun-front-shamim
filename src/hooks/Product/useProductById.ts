@@ -86,6 +86,7 @@ const useProductById = async (pid) => {
   try {
     const data = await Client.request(GET_PRODUCT_BY_ID, { id: pid });
     const productById = data?.getPopulatedProductBySlug?.productData;
+    console.log('Raw API Response for Product:', JSON.stringify(data, null, 2));
     // console.log(data?.getPopulatedProductBySlug);
     const product = {
       intro: {

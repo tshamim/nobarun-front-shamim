@@ -26,13 +26,13 @@ const Header: React.FC<HeaderProps> = ({ count, categories, className }) => {
     <StyledHeader className={className}>
       {isTablet && (
         <Box bg="#fff">
-          <FlexBox width="100%" alignItems="center" py="1em" px="1em">
-            <FlexBox flex="1 1 0" pt=".5em" px="1em">
+          <FlexBox width="100%" alignItems="center" py="0.75em" px="0.75em">
+            <FlexBox flex="1 1 0" mr="0.5rem">
               <SearchBox count={count} />
             </FlexBox>
 
             {isTablet && (
-              <Sidenav position="left" handle={<Icon mx="1rem">menu</Icon>}>
+              <Sidenav position="left" handle={<Icon mx="0.5rem">menu</Icon>}>
                 <Sidemenu categoriesList={categories} />
               </Sidenav>
             )}

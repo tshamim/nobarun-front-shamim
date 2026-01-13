@@ -59,9 +59,9 @@
   }
 
   &_load-btn {
-    background-color: #FFFDFD;
+    background: linear-gradient(135deg, #1ca346 0%, #6fba1a 100%);
     border: none;
-    color: #DD080F;
+    color: #fff;
     border-radius: 2rem;
     width: 18.4rem;
     height: 4.9rem;
@@ -69,11 +69,27 @@
     font-size: 1.8rem;
     margin-left: auto;
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(28, 163, 70, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background: linear-gradient(135deg, #2db84f 0%, #7fcb2a 100%);
+      box-shadow: 0 4px 12px rgba(28, 163, 70, 0.4);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(28, 163, 70, 0.3);
+    }
 
     &:disabled,
     &[disabled] {
+      background: #e0e0e0 !important;
       color: #666666 !important;
-      cursor: no-drop;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
     }
   }
 }

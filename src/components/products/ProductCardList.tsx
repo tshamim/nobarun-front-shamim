@@ -43,7 +43,7 @@ const ProductCard1List: React.FC<ProductCard1ListProps> = ({
                     noOfRating={reviewCount}
                     categoryName={product?.populatedCategory?.name}
                     categoryIcon={product?.populatedCategory?.icon}
-                    price={250}
+                    price={product?.price}
                     off={product.discount}
                     key={product.id}
                   />

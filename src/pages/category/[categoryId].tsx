@@ -135,6 +135,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
       };
     }
   } catch (err) {
+    console.error('[getServerSideProps] Error fetching category:', err);
     return {
       notFound: true,
     };
