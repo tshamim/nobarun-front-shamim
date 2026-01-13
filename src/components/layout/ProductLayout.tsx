@@ -37,7 +37,7 @@ const ProductLayout: React.FC<Props> = ({
               <Image
                 src="/assets/images/logo.svg"
                 alt="logo"
-                height="50px"
+                height="58px"
                 width="200px"
               />
             </a>

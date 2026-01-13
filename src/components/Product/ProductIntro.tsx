@@ -24,9 +24,8 @@ export interface ProductIntroProps {
 
 const getHallmarkImage = (imageObj: any) => {
   const { name, src: image } = imageObj;
-  const imagePath = image.slice(0, 16);
-  const imageName = imagePath.replace('media/', '');
-  const src = `${process.env.NEXT_PUBLIC_IMAGE_URL}media/hallmark-${imageName}.png`;
+  // Regex to insert 'hallmark-' before the filename
+  const src = process.env.NEXT_PUBLIC_IMAGE_URL + image.replace(/(\/)([^/]+)$/, '$1hallmark-$2');
   return { name, src };
 };
 
@@ -132,7 +131,15 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
       href={data?.document}
       className="product__intro-attachment"
       target="_blank"
-      style={{ fontSize: '16px', textAlign: 'center', margin: 0 }}
+      style={{ fontSize: '18px', textAlign: 'center', margin: 0,
+  backgroundImage: "linear-gradient(to right, #1ca346, #6fba1a)",
+  color: "#fff",
+  fontWeight: 400,
+  border: 0,
+  borderRadius: "8px",
+  padding: "5px 10px",
+  outline: "1px solid #1ca346",
+  outlineOffset: "4px", }}
     >
       <span>Real Images</span>
     </a>
@@ -316,6 +323,14 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
                     objectFit: 'contain',
                     width: '100%',
                     maxHeight: '480px',
+                  }}
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src.includes('hallmark-')) {
+                      // Attempt to construct the original URL by removing 'hallmark-'
+                      // Note: This matches the regex insertion used in getHallmarkImage
+                      target.src = target.src.replace('hallmark-', '');
+                    }
                   }}
                 />
               )

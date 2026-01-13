@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ count, categories, className }) => {
                 <Image
                   src="/assets/images/logo.svg"
                   alt="logo"
-                  height="50px"
+                  height="58px"
                   width="200px"
                 />
               </a>

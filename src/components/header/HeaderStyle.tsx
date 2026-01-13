@@ -21,7 +21,7 @@ const StyledHeader = styled.header`
     }
     
     &:hover img {
-      transform: scale(1.02);
+     
     }
   }
   .icon-holder {

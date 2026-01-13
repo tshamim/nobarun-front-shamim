@@ -36,7 +36,7 @@ const OtherLayout: React.FC<Props> = ({ count, categories, children }) => {
               <Image
                 src="/assets/images/logo.svg"
                 alt="logo"
-                height="50px"
+                height="58px"
                 width="200px"
               />
             </a>

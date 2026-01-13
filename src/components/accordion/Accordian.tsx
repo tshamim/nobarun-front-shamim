@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const Collapsible = styled.div`
@@ -81,6 +81,7 @@ const Collapsible = styled.div`
     & p {
       margin: 0 !important;
       padding: 0 !important;
+      text-align: justify;
     }
   }
   @media only screen and (max-width: 600px) {
@@ -91,6 +92,7 @@ const Collapsible = styled.div`
     .content {
       padding: 0.5rem 2rem 0.5rem 1rem;
       font-size: 2rem !important;
+      text-align: justify;
     }
   }
 `;

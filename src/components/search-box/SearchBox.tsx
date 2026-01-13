@@ -82,7 +82,7 @@ const SearchBox: React.FC<{ count: number | string }> = ({ count }) => {
         overflow="auto"
         style={{
           borderRadius: '8px',
-          marginTop: '8px',
+          marginTop: '0px',
           left: 0,
           right: 0,
           animation: resultList.length > 0 || loading || keyword !== '' ? 'fadeIn 0.3s ease' : 'none',
