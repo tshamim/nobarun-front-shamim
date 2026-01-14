@@ -2,10 +2,10 @@
   "name": "nobarun",
   "version": "1.0.0",
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider next -p 4000",
-    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider next build",
-    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider next start -p 4000",
-    "build-static-page": "cross-env NODE_OPTIONS=--openssl-legacy-provider next build && next export",
+    "dev": "next -p 4000",
+    "build": "next build",
+    "start": "next start -p 4000",
+    "build-static-page": "next build && next export",
     "type-check": "tsc",
     "heroku-postbuild": "npm run build"
   },
@@ -54,6 +54,9 @@
     "react-context-devtool": "^2.0.3",
     "sass": "^1.43.3",
     "typescript": "^4.2.4"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "license": "MIT"
 }
