@@ -5,6 +5,7 @@ const GET_CATEGORY_WISE_PRODUCT = gql`
   query getProductsByCollection($slug: String!) {
     getProductByCollectionName(slug: $slug) {
       collectionName
+      collectionDescription
       products {
         data {
           id

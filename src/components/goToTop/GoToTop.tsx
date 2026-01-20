@@ -1,11 +1,7 @@
-import IconButton from '@component/buttons/IconButton';
-import Icon from '@component/icon/Icon';
-import useWindowSize from '@hook/useWindowSize';
 import { useEffect, useState } from 'react';
 
 const GoToTop = ({ showBelow }) => {
   const [show, setShow] = useState(false);
-  const width = useWindowSize();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,22 +15,34 @@ const GoToTop = ({ showBelow }) => {
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     }
-  }, []);
+  }, [showBelow]);
 
   const handleClick = () => {
-    window['scrollTo']({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
   return (
     <>
       {show && (
-        <IconButton
-          size="small"
-          className="goto"
-          aria-label="Go to top"
+        <button
+          className="scroll-to-top-modern"
+          aria-label="Scroll to top"
           onClick={handleClick}
         >
-          <Icon size={width > 900 ? '4rem' : '3rem'}>up-arrow</Icon>
-        </IconButton>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2.5"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.5 15.75l7.5-7.5 7.5 7.5"
+            />
+          </svg>
+        </button>
       )}
     </>
   );

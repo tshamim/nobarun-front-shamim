@@ -1,0 +1,207 @@
+// ==========================================
+// Green Footer Section Styles
+// ==========================================
+
+.footer-green {
+  background: linear-gradient(135deg, #1ca346 0%, #6fba1a 100%);
+  color: #ffffff;
+  padding: 40px 0 20px;
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr auto;
+    gap: 40px;
+    align-items: start;
+  }
+  
+  .footer-column {
+    .footer-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    
+    .footer-text {
+      p {
+        margin: 5px 0;
+        font-size: 14px;
+        line-height: 1.6;
+        
+        strong {
+          font-weight: 600;
+        }
+      }
+      
+      .footer-contact-item {
+        margin-top: 8px;
+        
+        a {
+          color: #ffffff;
+          text-decoration: underline;
+          
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+    
+    .footer-links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        margin-bottom: 8px;
+        
+        a {
+          color: #ffffff;
+          font-size: 14px;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+  
+  .footer-description {
+    .company-description {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      text-align: justify;
+      
+      strong {
+        font-weight: 700;
+      }
+    }
+    
+    .footer-social-icons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      
+      .social-icon-link {
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.3);
+          transform: translateY(-2px);
+        }
+        
+        svg {
+          width: 18px;
+          height: 18px;
+          fill: #ffffff;
+        }
+      }
+    }
+    
+    .footer-copyright {
+      font-size: 13px;
+      margin: 0;
+      opacity: 0.9;
+    }
+  }
+  
+  .footer-dmca {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    
+    a {
+      display: block;
+      transition: opacity 0.2s ease;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+// Green footer responsive styles
+@media (max-width: 992px) {
+  .footer-green {
+    .footer-content {
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    
+    .footer-dmca {
+      grid-column: 1 / -1;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 675px) {
+  .footer-green {
+    padding: 30px 0 15px;
+    
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+    
+    .footer-column {
+      .footer-title {
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+      
+      .footer-text p {
+        font-size: 13px;
+      }
+      
+      .footer-links-list li a {
+        font-size: 13px;
+      }
+    }
+    
+    .footer-description {
+      .company-description {
+        font-size: 13px;
+        text-align: left;
+      }
+      
+      .footer-social-icons {
+        justify-content: flex-start;
+        
+        .social-icon-link {
+          width: 32px;
+          height: 32px;
+          
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+      
+      .footer-copyright {
+        font-size: 12px;
+      }
+    }
+    
+    .footer-dmca {
+      justify-content: center;
+      margin-top: 15px;
+    }
+  }
+}

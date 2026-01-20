@@ -17,7 +17,7 @@ import useWindowSize from '@hook/useWindowSize';
 import { format } from 'date-fns';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const ReviewsPage = (props) => {
   const {
@@ -137,6 +137,7 @@ const ReviewsPage = (props) => {
 ReviewsPage.layout = OtherLayout;
 
 const getHallmarkImage = (imageObj: any) => {
+  if (!imageObj) return '';
   const imagePath = imageObj.slice(0, 16);
   const imageName = imagePath.replace('media/', '');
   const src = `${process.env.NEXT_PUBLIC_IMAGE_URL}media/hallmark-${imageName}.png`;
@@ -152,7 +153,8 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
     let count = await useProductCount();
     categories = JSON.parse(JSON.stringify(categories));
 
-    const reviewSchema = data.reviews.map((review) => ({
+    const reviews = data?.reviews || [];
+    const reviewSchema = reviews.map((review) => ({
       '@type': 'Review',
       name: review.title,
       reviewBody: review.reviewText,
@@ -162,42 +164,52 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
         bestRating: '5',
         worstRating: '1',
       },
-      datePublished: format(new Date(review.createdAt), 'yyyy-MM-dd'),
+      datePublished: review.createdAt ? format(new Date(review.createdAt), 'yyyy-MM-dd') : format(new Date(), 'yyyy-MM-dd'),
       author: { '@type': 'Person', name: review.name },
     }));
     const schema = {
       '@context': 'https://schema.org/',
       '@type': 'Product',
-      name: data?.productTitle,
+      name: data?.productTitle || '',
       image:
         'https://nobarunawsvideouploader.s3.ap-south-1.amazonaws.com/' +
-        data?.featuredImage,
-      description: data?.description,
-      sku: data?.productCode,
+        (data?.featuredImage || ''),
+      description: data?.productTitle || '',
+      sku: data?.productCode || '',
       offers: {
         '@type': 'Offer',
         url: '',
         priceCurrency: 'BDT',
-        price: data?.price,
+        price: data?.price || '0',
         availability: 'https://schema.org/InStock',
         itemCondition: 'https://schema.org/NewCondition',
       },
       aggregateRating: {
         '@type': 'AggregateRating',
-        ratingValue: data?.summary?.avgRating,
+        ratingValue: data?.summary?.avgRating || 0,
         bestRating: '5',
         worstRating: '1',
-        ratingCount: data?.summary?.noOfReviews,
-        reviewCount: data?.summary?.noOfReviews,
+        ratingCount: data?.summary?.noOfReviews || 0,
+        reviewCount: data?.summary?.noOfReviews || 0,
       },
       review: reviewSchema,
     };
 
     return {
       props: {
-        ...data,
+        productTitle: data?.productTitle || '',
+        productCode: data?.productCode || '',
+        price: data?.price || '0 Taka',
+        stockStatus: data?.stockStatus || 'In Stock',
+        summary: data?.summary || { avgRating: 0, noOfReviews: 0 },
+        details: data?.details || [],
+        reviews: data?.reviews || [],
+        contact: data?.contact || null,
+        keywords: [],
+        seoTitle: `${data?.productTitle || 'Product'} Reviews`,
+        description: `Read customer reviews for ${data?.productTitle || 'this product'}`,
         schema,
-        featuredImage: getHallmarkImage(data.featuredImage),
+        featuredImage: data?.featuredImage ? getHallmarkImage(data.featuredImage) : '',
         slug,
         categories,
         count,

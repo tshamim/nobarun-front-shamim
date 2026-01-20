@@ -1,0 +1,111 @@
+// ==========================================
+// Modern Scroll to Top Button Styles
+// ==========================================
+
+.scroll-to-top-modern {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ec1c24 0%, #ff3b42 100%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(236, 28, 36, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  animation: fadeInUp 0.4s ease-out;
+  
+  svg {
+    width: 24px;
+    height: 24px;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(236, 28, 36, 0.5);
+    background: linear-gradient(135deg, #ff2a32 0%, #ff5258 100%);
+    
+    svg {
+      transform: translateY(-2px);
+    }
+  }
+  
+  &:active {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(236, 28, 36, 0.4);
+  }
+  
+  // Pulse animation on appearance
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ec1c24 0%, #ff3b42 100%);
+    opacity: 0;
+    z-index: -1;
+    animation: pulse 2s ease-out infinite;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .scroll-to-top-modern {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-top-modern {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

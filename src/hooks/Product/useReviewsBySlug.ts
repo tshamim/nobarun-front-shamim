@@ -9,9 +9,6 @@ const GET_REVIEWS_BY_PRODUCT_SLUG = gql`
       price
       stockStatus
       featuredImage
-      seoTitle
-      keywords
-      description
       summary {
         avgRating
         noOfReviews
