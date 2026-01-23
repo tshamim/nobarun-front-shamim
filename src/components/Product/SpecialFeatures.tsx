@@ -6,7 +6,7 @@ interface FeaturesProps {
 }
 const SpecialFeatures: React.FC<FeaturesProps> = ({ features }) => {
   return (
-    <ProductCard12 title="Product Special Features">
+    <ProductCard12 title="Product Features & Benefits">
       {
         <div
           className="product__features"

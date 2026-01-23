@@ -7,7 +7,7 @@ interface SpecificationsProps {
 
 const Specifications: React.FC<SpecificationsProps> = ({ specifications }) => {
   return (
-    <ProductCard12 title="Product Features & Benefits">
+    <ProductCard12 title="Product Specification">
       <div
         className="product__specification"
         dangerouslySetInnerHTML={{ __html: specifications }}
