@@ -211,7 +211,7 @@ const ClientsPage = ({ clients }) => {
 
               {/* Load More Button */}
               {category.clients.length > noOfClients && (
-                <Box textAlign="center" mt="3rem">
+                <Box textAlign="right" mt="5rem">
                   <button
                     className="client_load-btn"
                     onClick={() => loadMoreHandler(category.categoryName)}

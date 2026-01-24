@@ -30,6 +30,7 @@ const GET_PRODUCT_BY_ID = gql`
           }
           features
           specification
+          productSpotlight
           questions {
             title
             question
@@ -118,6 +119,7 @@ const useProductById = async (pid) => {
       keyPoints: productById?.product?.keyPoints,
       features: productById?.product?.features,
       specifications: productById?.product?.specification,
+      productSpotlight: productById?.product?.productSpotlight,
       questions: productById?.product?.questions,
       tags: productById?.product?.tags,
       reviews: data?.getPopulatedProductBySlug?.populatedReviews,

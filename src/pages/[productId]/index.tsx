@@ -13,6 +13,7 @@ import Features from '@component/Product/Features';
 import MobileStickyBar from '@component/Product/MobileStickyBar';
 import ProductHead from '@component/Product/ProductHead';
 import ProductIntro from '@component/Product/ProductIntro';
+import ProductSpotlight from '@component/Product/ProductSpotlight';
 import Questions from '@component/Product/Questions';
 import RelatedProducts from '@component/Product/RelatedProducts';
 import RelatedReview from '@component/Product/RelatedReview';
@@ -165,6 +166,9 @@ useEffect(() => {
                     ))}
                 </Grid>
               </Box>
+            )}
+            {product?.productSpotlight && (
+              <ProductSpotlight spotlight={product.productSpotlight} />
             )}
             {isTabPhone && product?.contact && (
               <>
