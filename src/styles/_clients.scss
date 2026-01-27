@@ -1,6 +1,6 @@
 .clients-list_wrapper {
   display: grid;
-  gap: 2.5rem;
+  gap: 1.5rem;
   grid-template-columns: repeat(7, minmax(180px, 1fr));
 
   @include respond(1400px) {
@@ -54,10 +54,6 @@
 }
 
 .client {
-  &_list {
-    height: 20.6rem;
-  }
-
   &_load-btn {
     background: linear-gradient(135deg, #1ca346 0%, #6fba1a 100%);
     border: none;

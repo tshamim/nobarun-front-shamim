@@ -137,17 +137,6 @@ const ClientsPage = ({ clients }) => {
                 >
                   {category.categoryName}
                 </H2>
-                <span style={{
-                  marginLeft: '1.5rem',
-                  padding: '0.4rem 1.2rem',
-                  background: 'linear-gradient(135deg, #1ca346 0%, #6fba1a 100%)',
-                  color: '#fff',
-                  borderRadius: '20px',
-                  fontSize: '1.3rem',
-                  fontWeight: 600,
-                }}>
-                  {category.clients.length} {category.clients.length === 1 ? 'Client' : 'Clients'}
-                </span>
               </div>
 
               {/* Clients Grid */}
@@ -165,10 +154,10 @@ const ClientsPage = ({ clients }) => {
                       className="client__body"
                       style={{
                         background: '#fff',
-                        padding: '1.5rem',
+                        padding: '1rem',
                         boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
                         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                        height: '100%',
+                        aspectRatio: '1 / 1',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -178,8 +167,10 @@ const ClientsPage = ({ clients }) => {
                         alt={`${item.clientName} - ${category.categoryName}`}
                         src={process.env.NEXT_PUBLIC_IMAGE_URL + item.logo}
                         style={{
-                          width: '100%',
-                          height: '100%',
+                          maxWidth: '100%',
+                          maxHeight: '100%',
+                          width: 'auto',
+                          height: 'auto',
                           objectFit: 'contain',
                           filter: 'grayscale(20%)',
                           transition: 'filter 0.3s ease',

@@ -139,7 +139,9 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
   borderRadius: "8px",
   padding: "5px 10px",
   outline: "1px solid #1ca346",
-  outlineOffset: "4px", }}
+  outlineOffset: "4px",
+  whiteSpace: "nowrap",
+  display: "inline-block" }}
     >
       <span>Real Images</span>
     </a>
@@ -152,7 +154,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
         style={{ marginTop: 0 }}
         target="_blank"
       >
-        বাংলা ব্লগ পড়ুন
+        বাংলা ব্লগ
       </a>
     ) : (
       ''
@@ -202,8 +204,8 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
       )}
       <Box overflow="hidden" px="15px" py="5px">
         <H1 fontSize={width > 660 ? '32px' : '24px'}>{data?.productName}</H1>
-        <FlexBox justifyContent="space-between" mb="1.1em">
-          <Box width={isPhone ? '100%' : ''}>
+        <FlexBox justifyContent="space-between" mb="1.1em" alignItems="flex-start">
+          <Box width={isPhone ? '65%' : '100%'}>
             {!isPhone && (
               <Typography fontSize="18px" lineHeight="1" mb="0.7rem">
                 Product Code: {data?.productCode}
@@ -249,8 +251,6 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
                       ''
                     )}
                   </Box>
-                  {/* for mobile */}
-                  {isPhone && banglaVersionHTML}
                 </FlexBox>
               )}
 
@@ -300,9 +300,16 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
             </FlexBox>
           </Box>
 
+          {/* Real images button for mobile - top right */}
+          {isPhone && (
+            <div style={{ display: 'flex', alignItems: 'flex-start', marginLeft: 'auto' }}>
+              {documentDownload}
+            </div>
+          )}
+
           {/* real image */}
           {!isPhone && (
-            <div style={{ display: 'flex', alignItems: 'center', width: '13.5%', marginLeft: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', minWidth: '120px', marginLeft: 0 }}>
               {documentDownload}
             </div>
           )}
@@ -338,7 +345,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
           </FlexBox>
           {isPhone && (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', width: '100%', marginLeft: 'auto', marginBottom: '1rem' }}>
-              {documentDownload}
+              {banglaVersionHTML}
             </div>
           )}
           <Box className="product__hero-slider">

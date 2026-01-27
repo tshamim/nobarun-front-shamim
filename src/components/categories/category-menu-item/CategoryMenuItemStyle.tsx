@@ -9,7 +9,7 @@ export const StyledCategoryMenuItem = styled.div`
     display: flex;
     align-items: center;
     padding: 0.75rem 1.25rem;
-    height: 5rem;
+    height: 4.6rem;
     min-width: 30rem;
     white-space: pre;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

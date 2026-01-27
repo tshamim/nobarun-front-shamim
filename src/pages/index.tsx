@@ -7,16 +7,17 @@ import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import {
-    A11y,
-    Autoplay,
-    Navigation,
-    Pagination,
-    Scrollbar,
+  A11y,
+  Autoplay,
+  Navigation,
+  Pagination,
+  Scrollbar,
 } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Image from 'next/image';
 import AppLayout from '../components/layout/AppLayout';
+import ProductCard1 from '../components/product-cards/ProductCard';
 import client from '../config/ApolloClient';
 
 const HomePage = ({ clients, categories, featuredCategories, collections }) => {
@@ -254,42 +255,15 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
                   {collection.products
                     .filter((item, index) => item && index < 4)
                     .map(({ product, reviewCount, ratingAverage }) => (
-                      <Link key={product?.id} href={`/${product.id}`}>
-                        <a>
-                          <div className="collection-product-card">
-                            <div className="product-image">
-                              <img
-                                src={process.env.NEXT_PUBLIC_IMAGE_URL + product.featured}
-                                alt={product.productName}
-                                loading="lazy"
-                              />
-                            </div>
-                            <div className="product-info">
-                              <h4>{product.productName}</h4>
-                              <div className="rating-row">
-                                <div className="stars">
-                                  {[1, 2, 3, 4, 5].map((star) => (
-                                    <svg
-                                      key={star}
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 24 24"
-                                      className={star <= Math.round(ratingAverage || 0) ? '' : 'star-empty'}
-                                    >
-                                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                  ))}
-                                </div>
-                                {reviewCount > 0 && (
-                                  <span className="review-text">({reviewCount} reviews)</span>
-                                )}
-                              </div>
-                              {product.populatedCategory && product.populatedCategory.name && (
-                                <span className="category-tag">{product.populatedCategory.name}</span>
-                              )}
-                            </div>
-                          </div>
-                        </a>
-                      </Link>
+                      <ProductCard1
+                        key={product?.id}
+                        id={product?.id}
+                        imgUrl={product?.featured}
+                        title={product?.productName}
+                        price={product?.price}
+                        rating={ratingAverage || 0}
+                        noOfRating={reviewCount || 0}
+                      />
                     ))}
                 </div>
               </div>
