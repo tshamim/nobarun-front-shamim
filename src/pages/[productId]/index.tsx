@@ -5,7 +5,6 @@ import NavbarLayout from '@component/layout/NavbarLayout';
 import MobileNavigationBar from '@component/mobile-navigation/MobileNavigationBar';
 import AddQuery from '@component/Product/AddQuery';
 import AddReview from '@component/Product/AddReview';
-import Ammenities from '@component/Product/Ammenities';
 import Contacts from '@component/Product/Contacts';
 import CustomerMedia from '@component/Product/CustomerMedia';
 import DesktopStickyBar from '@component/Product/DesktopStickyBar';
@@ -187,7 +186,7 @@ useEffect(() => {
                   contact={product?.contact}
                   setIsOpen={setIsOpen}
                 />
-                <Ammenities contact={product?.contact} />
+                {/* <Ammenities contact={product?.contact} /> */}
               </>
             )}
             {product?.keyPoints &&
@@ -220,7 +219,7 @@ useEffect(() => {
               setIsOpen={setIsOpen}
             />
           )}
-          {!isTabPhone && <Ammenities contact={product?.contact} />}
+          {/* {!isTabPhone && <Ammenities contact={product?.contact} />} */}
           {product?.features && (
             <SpecialFeatures features={product?.features} />
           )}

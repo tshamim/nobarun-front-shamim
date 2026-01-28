@@ -126,17 +126,9 @@ CollectionsPage.layout = OtherLayout;
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const slug = context.params.collectionSlug;
-  console.log('🔍 Fetching collection with slug:', slug);
   
   try {
     const data = await useProductsByCollection(slug);
-    console.log('✅ Collection data received:', {
-      hasData: !!data,
-      hasProducts: !!data?.products,
-      collectionName: data?.products?.collectionName,
-      collectionDescription: data?.products?.collectionDescription,
-      productCount: data?.products?.products?.length
-    });
     
     const count = await useProductCount();
     
@@ -161,17 +153,11 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
         },
       };
     } else {
-      console.log('❌ No data returned for collection');
       return {
         notFound: true,
       };
     }
   } catch (err) {
-    console.error('❌ Error fetching collection:', err);
-    console.error('Error details:', {
-      message: err.message,
-      stack: err.stack
-    });
     return {
       notFound: true,
     };
