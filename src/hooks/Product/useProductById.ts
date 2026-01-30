@@ -101,7 +101,7 @@ const useProductById = async (pid) => {
         stockStatus: productById && productById.product && productById.product.stockStatus && productById.product.stockStatus.title ? productById.product.stockStatus.title:null ,
         featuredImage: productById?.product?.imageObject?.find(
           (img) => img.src === productById?.product?.featured,
-        ) || { name: '', src: '' },
+        ) || (productById?.product?.featured ? { name: '', src: productById.product.featured } : { name: '', src: '' }),
         images: productById?.product?.imageObject,
         banglaVersionLink: productById?.product?.banglaVersionLink,
         document: productById?.product?.document,

@@ -22,10 +22,16 @@ export interface ProductIntroProps {
   id?: string | number;
 }
 
-const getHallmarkImage = (imageObj: any) => {
-  const { name, src: image } = imageObj;
-  // Regex to insert 'hallmark-' before the filename
-  const src = process.env.NEXT_PUBLIC_IMAGE_URL + image.replace(/(\/)([^/]+)$/, '$1hallmark-$2');
+const getImageUrl = (imageObj: any) => {
+  // Null/undefined check
+  if (!imageObj || !imageObj.src) {
+    return { name: '', src: '' };
+  }
+  
+  const { name = '', src: image } = imageObj;
+  const baseUrl = process.env.NEXT_PUBLIC_IMAGE_URL || '';
+  const src = baseUrl + image;
+  
   return { name, src };
 };
 
@@ -41,14 +47,14 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
 
   useEffect(() => {
     if (data && data.featuredImage) {
-      setSelectedImage(getHallmarkImage(data?.featuredImage));
+      setSelectedImage(getImageUrl(data?.featuredImage));
       setIsLoading(false);
     }
   }, [data?.images?.[0]]);
 
   const handleImageClick = (ind, type) => () => {
     if (type === 'image') {
-      setSelectedImage(getHallmarkImage(ind));
+      setSelectedImage(getImageUrl(ind));
       setIsVideo(false);
     }
     if (type === 'video') {
@@ -58,9 +64,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
     }
   };
 
-  // Debug logging
-  console.log('ProductIntro Data:', data);
-  console.log('ProductIntro Images:', data?.images);
+
 
   const images = (data && Array.isArray(data.images)) ? (
     data.images.map((url, ind) => (
@@ -131,17 +135,21 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
       href={data?.document}
       className="product__intro-attachment"
       target="_blank"
-      style={{ fontSize: '18px', textAlign: 'center', margin: 0,
-  backgroundImage: "linear-gradient(to right, #1ca346, #6fba1a)",
-  color: "#fff",
-  fontWeight: 400,
-  border: 0,
-  borderRadius: "8px",
-  padding: "5px 10px",
-  outline: "1px solid #1ca346",
-  outlineOffset: "4px",
-  whiteSpace: "nowrap",
-  display: "inline-block" }}
+      style={{
+        fontSize: '1.6rem',
+        textAlign: 'center',
+        margin: 0,
+        backgroundImage: 'linear-gradient(to right, #1ca346, #6fba1a)',
+        color: '#fff',
+        fontWeight: 400,
+        border: 0,
+        borderRadius: '8px',
+        padding: '5px 10px',
+        outline: '1px solid #1ca346',
+        outlineOffset: '4px',
+        whiteSpace: 'nowrap',
+        display: 'inline-block',
+      }}
     >
       <span>Real Images</span>
     </a>
@@ -150,9 +158,23 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
     data?.banglaVersionLink !== '' ? (
       <a
         href={data?.banglaVersionLink}
-        className="product__hero-btn"
-        style={{ marginTop: 0 }}
         target="_blank"
+        style={{
+          fontSize: '1.6rem',
+          textAlign: 'center',
+          margin: 0,
+          backgroundImage: 'linear-gradient(to right, #1ca346, #6fba1a)',
+          color: '#fff',
+          fontWeight: 400,
+          border: 0,
+          borderRadius: '8px',
+          padding: '5px 10px',
+          outline: '1px solid #1ca346',
+          outlineOffset: '4px',
+          whiteSpace: 'nowrap',
+          display: 'inline-block',
+          fontFamily: "'SolaimanLipi', sans-serif",
+        }}
       >
         বাংলা ব্লগ
       </a>
@@ -167,7 +189,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
         onClose={() => {
           setModalOpen(false);
           setIsVideo(false);
-          setSelectedImage(getHallmarkImage(data?.featuredImage));
+          setSelectedImage(getImageUrl(data?.featuredImage));
         }}
       >
         <Card
@@ -181,7 +203,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
             onClick={() => {
               setModalOpen(false);
               setIsVideo(false);
-              setSelectedImage(getHallmarkImage(data?.featuredImage));
+              setSelectedImage(getImageUrl(data?.featuredImage));
             }}
           >
             <Icon>close</Icon>
@@ -330,14 +352,6 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
                     objectFit: 'contain',
                     width: '100%',
                     maxHeight: '480px',
-                  }}
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (target.src.includes('hallmark-')) {
-                      // Attempt to construct the original URL by removing 'hallmark-'
-                      // Note: This matches the regex insertion used in getHallmarkImage
-                      target.src = target.src.replace('hallmark-', '');
-                    }
                   }}
                 />
               )

@@ -136,12 +136,9 @@ const ReviewsPage = (props) => {
 
 ReviewsPage.layout = OtherLayout;
 
-const getHallmarkImage = (imageObj: any) => {
-  if (!imageObj) return '';
-  const imagePath = imageObj.slice(0, 16);
-  const imageName = imagePath.replace('media/', '');
-  const src = `${process.env.NEXT_PUBLIC_IMAGE_URL}media/hallmark-${imageName}.png`;
-  return src;
+const getImageUrl = (imagePath: string) => {
+  if (!imagePath) return '';
+  return `${process.env.NEXT_PUBLIC_IMAGE_URL || ''}${imagePath}`;
 };
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
@@ -209,7 +206,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
         seoTitle: `${data?.productTitle || 'Product'} Reviews`,
         description: `Read customer reviews for ${data?.productTitle || 'this product'}`,
         schema,
-        featuredImage: data?.featuredImage ? getHallmarkImage(data.featuredImage) : '',
+        featuredImage: data?.featuredImage ? getImageUrl(data.featuredImage) : '',
         slug,
         categories,
         count,

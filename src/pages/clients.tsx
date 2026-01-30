@@ -115,8 +115,8 @@ const ClientsPage = ({ clients }) => {
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                marginBottom: '2.5rem',
-                paddingBottom: '1.5rem',
+                marginBottom: '1.5rem',
+                paddingBottom: '0.5rem',
                 borderBottom: '3px solid #f0f0f0',
               }}>
                 <div style={{
@@ -187,7 +187,7 @@ const ClientsPage = ({ clients }) => {
                       fontSize="14px"
                       fontWeight="600"
                       className="client__title"
-                      mt="1rem"
+                      mt="0rem"
                       color="#4a5568"
                       style={{
                         textAlign: 'center',
@@ -202,7 +202,7 @@ const ClientsPage = ({ clients }) => {
 
               {/* Load More Button */}
               {category.clients.length > noOfClients && (
-                <Box textAlign="right" mt="5rem">
+                <Box textAlign="right" mt="1.5rem">
                   <button
                     className="client_load-btn"
                     onClick={() => loadMoreHandler(category.categoryName)}
