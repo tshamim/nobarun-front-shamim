@@ -6,6 +6,7 @@ import Spinner from '@component/Spinner';
 import useWindowSize from '@hook/useWindowSize';
 import getYoutubeId from 'helpers/getYoutubeId';
 import React, { useEffect, useState } from 'react';
+import { getHallmarkImageUrl } from '../../utils/imageUtils';
 import Avatar from '../avatar/Avatar';
 import Box from '../Box';
 import FlexBox from '../FlexBox';
@@ -29,8 +30,7 @@ const getImageUrl = (imageObj: any) => {
   }
   
   const { name = '', src: image } = imageObj;
-  const baseUrl = process.env.NEXT_PUBLIC_IMAGE_URL || '';
-  const src = baseUrl + image;
+  const src = getHallmarkImageUrl(image);
   
   return { name, src };
 };
@@ -331,7 +331,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
 
           {/* real image */}
           {!isPhone && (
-            <div style={{ display: 'flex', alignItems: 'center', minWidth: '120px', marginLeft: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', minWidth: '120px', marginLeft: 0, marginRight: 20 }}>
               {documentDownload}
             </div>
           )}
