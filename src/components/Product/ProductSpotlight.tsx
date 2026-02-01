@@ -63,7 +63,7 @@ const SpotlightIcon = styled.div`
 `;
 
 const SpotlightTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: 700;
   background: linear-gradient(135deg, #ff6b35 0%, #e84118 100%);
   -webkit-background-clip: text;
@@ -76,12 +76,14 @@ const SpotlightTitle = styled.h3`
 const SpotlightContent = styled.div`
   position: relative;
   z-index: 1;
-  font-size: 1.1rem;
+  font-size: 22px;
   line-height: 1.8;
   color: #4a4a4a;
+  text-align: justify;
 
   p {
     margin: 0 0 1rem 0;
+    text-align: justify;
     
     &:last-child {
       margin-bottom: 0;
@@ -89,8 +91,8 @@ const SpotlightContent = styled.div`
   }
 
   strong, b {
-    color: #e84118;
-    font-weight: 600;
+    color: #303338;
+    font-weight: 700;
   }
 
   ul, ol {

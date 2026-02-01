@@ -144,7 +144,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
         fontWeight: 400,
         border: 0,
         borderRadius: '8px',
-        padding: '5px 10px',
+        padding: '5px 3px',
         outline: '1px solid #1ca346',
         outlineOffset: '4px',
         whiteSpace: 'nowrap',
@@ -227,7 +227,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
       <Box overflow="hidden" px="15px" py="5px">
         <H1 fontSize={width > 660 ? '32px' : '24px'}>{data?.productName}</H1>
         <FlexBox justifyContent="space-between" mb="1.1em" alignItems="flex-start">
-          <Box width={isPhone ? '65%' : '100%'}>
+          <Box width={isPhone ? '76%' : '100%'}>
             {!isPhone && (
               <Typography fontSize="18px" lineHeight="1" mb="0.7rem">
                 Product Code: {data?.productCode}

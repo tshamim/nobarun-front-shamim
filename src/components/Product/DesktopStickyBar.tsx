@@ -4,7 +4,6 @@ import FlexBox from '@component/FlexBox';
 import Rating from '@component/rating/Rating';
 import { H1, Span } from '@component/Typography';
 import useWindowSize from '@hook/useWindowSize';
-import React from 'react';
 import Scrollspy from 'react-scrollspy';
 
 interface DesktopStickyBarProps {

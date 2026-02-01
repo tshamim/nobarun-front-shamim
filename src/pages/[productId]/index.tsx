@@ -29,6 +29,7 @@ import setRecentlyViewedProduct from 'helpers/setRecentlyViewedProduct';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useState } from 'react';
+import { getHallmarkImageUrl } from '../../utils/imageUtils';
 //
 import FlexBox from '../../components/FlexBox';
 import HoverBox from '../../components/HoverBox';
@@ -166,9 +167,6 @@ useEffect(() => {
                 </Grid>
               </Box>
             )}
-            {product?.productSpotlight && (
-              <ProductSpotlight spotlight={product.productSpotlight} />
-            )}
             {isTabPhone && product?.contact && (
               <>
                 <Contacts
@@ -188,6 +186,9 @@ useEffect(() => {
                 />
                 {/* <Ammenities contact={product?.contact} /> */}
               </>
+            )}
+            {product?.productSpotlight && (
+              <ProductSpotlight spotlight={product.productSpotlight} />
             )}
             {product?.keyPoints &&
             product?.keyPoints.length === 1 &&
@@ -319,17 +320,15 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
   //Update Schema
   try {
     categories = JSON.parse(JSON.stringify(categories));
-    let imageName = '';
+    let schemaImageUrl = '';
     if (
       data &&
       data.intro &&
       data.intro.featuredImage &&
       data.intro.featuredImage.src
     ) {
-      let imagePath = data.intro.featuredImage.src.slice(0, 16);
-      if (imagePath) {
-        imageName = imagePath.replace('media/', '');
-      }
+      // Use the hallmark version for schema
+      schemaImageUrl = getHallmarkImageUrl(data.intro.featuredImage.src);
     }
     //Value
     const name =
@@ -353,10 +352,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
       '@context': 'https://schema.org/',
       '@type': 'Product',
       name: name,
-      // image:
-      //   'https://nobarunawsvideouploader.s3.ap-south-1.amazonaws.com/' +
-      //   data?.intro?.featuredImage?.src,
-      image: `https://nobarunawsvideouploader.s3.ap-south-1.amazonaws.com/media/hallmark-${imageName}.png`,
+      image: schemaImageUrl,
       description: description,
       sku: sku,
       // offers: {
