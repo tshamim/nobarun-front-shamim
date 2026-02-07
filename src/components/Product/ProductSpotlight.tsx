@@ -7,7 +7,7 @@ interface SpotlightProps {
 
 const SpotlightContainer = styled.div`
   margin: 2rem 0;
-  padding: 2rem 2.5rem;
+  padding: 0.5rem 1.5rem;
   background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 50%, #ffd6c9 100%);
   border-radius: 16px;
   border-left: 5px solid #ff6b35;
@@ -123,7 +123,9 @@ const SpotlightContent = styled.div`
 `;
 
 const ProductSpotlight: React.FC<SpotlightProps> = ({ spotlight }) => {
-  if (!spotlight || spotlight.trim() === '') return null;
+  // Strip HTML tags and check if there's actual text content
+  const textContent = spotlight?.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim();
+  if (!spotlight || !textContent) return null;
 
   return (
     <SpotlightContainer>

@@ -84,15 +84,7 @@
 // Responsive styles
 @media (max-width: 768px) {
   .scroll-to-top-modern {
-    bottom: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-    
-    svg {
-      width: 20px;
-      height: 20px;
-    }
+    display: none;
   }
 }
 
