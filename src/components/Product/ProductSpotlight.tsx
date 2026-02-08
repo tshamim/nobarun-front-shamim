@@ -127,6 +127,25 @@ const ProductSpotlight: React.FC<SpotlightProps> = ({ spotlight }) => {
   const textContent = spotlight?.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim();
   if (!spotlight || !textContent) return null;
 
+  // Optimize images in the HTML content
+  
+  // Replace S3 URLs in the content
+  let optimizedContent = spotlight;
+  const s3Domains = [
+    'nobarunawsvideouploader.s3.ap-south-1.amazonaws.com',
+    's3.ap-south-1.amazonaws.com/nobarunawsvideouploader',
+    'nobarun.s3.us-east-2.amazonaws.com'
+  ];
+
+  s3Domains.forEach(domain => {
+     // Create a regex to replace all occurrences globally
+     const regex = new RegExp(domain, 'g');
+     optimizedContent = optimizedContent.replace(regex, 'd1v2sbji1mlin2.cloudfront.net');
+  });
+  
+  // Ensure HTTPS
+  optimizedContent = optimizedContent.replace(/http:\/\/d1v2sbji1mlin2/g, 'https://d1v2sbji1mlin2');
+
   return (
     <SpotlightContainer>
       <SpotlightHeader>
@@ -138,7 +157,7 @@ const ProductSpotlight: React.FC<SpotlightProps> = ({ spotlight }) => {
         <SpotlightTitle>Product Spotlight</SpotlightTitle>
       </SpotlightHeader>
       <SpotlightContent
-        dangerouslySetInnerHTML={{ __html: spotlight.replace(/&nbsp;/g, ' ') }}
+        dangerouslySetInnerHTML={{ __html: optimizedContent.replace(/&nbsp;/g, ' ') }}
       />
     </SpotlightContainer>
   );
