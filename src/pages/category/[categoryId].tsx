@@ -16,6 +16,7 @@ import useWindowSize from '@hook/useWindowSize';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
+import { getImageUrl } from '../../utils/imageUtils';
 
 const CategoryPage = ({
   slug,
@@ -41,10 +42,7 @@ const CategoryPage = ({
         <meta property="og:url" content="https://www.nobarunbd.com/" />
         <meta
           property="og:image:url"
-          content={
-            'https://nobarunawsvideouploader.s3.ap-south-1.amazonaws.com/' +
-            products[0]?.productData?.product?.populatedCategory?.icon
-          }
+          content={getImageUrl(products[0]?.productData?.product?.populatedCategory?.icon)}
         />
         <meta property="og:image:width" content="200" />
         <meta property="og:image:height" content="200" />

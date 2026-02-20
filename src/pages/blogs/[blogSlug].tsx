@@ -2,7 +2,7 @@ import BlogContact from '@component/blog/BlogContact';
 import Box from '@component/Box';
 import Grid from '@component/grid/Grid';
 import OtherLayout from '@component/layout/OtherLayout';
-import BlogFilterCard from '@component/products/BlogFilterCard'; 
+import BlogFilterCard from '@component/products/BlogFilterCard';
 import { H1, H2 } from '@component/Typography';
 import useBlogCategoriesTree from '@hook/Blogs/useAllBlogCategory';
 import useBlogBySlug from '@hook/Blogs/useBlogBySlug';
@@ -10,6 +10,7 @@ import useAllProductCategories from '@hook/Home/useAllProductCategories';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { Fragment } from 'react';
+import { getImageUrl } from '../../utils/imageUtils';
 
 const BlogDetails = ({ blogSlug, blog, blogCategories }) => {
   return (
@@ -41,7 +42,7 @@ const BlogDetails = ({ blogSlug, blog, blogCategories }) => {
           <H1 className="blog__title">{blog?.blogTitle}</H1>
           <div className="blog__hero">
             <img
-              src={process.env.NEXT_PUBLIC_IMAGE_URL + blog?.featured}
+              src={getImageUrl(blog?.featured)}
               alt={blog?.SeoTitle}
               style={{ objectFit: 'contain', width: '100%', maxHeight: '500px' }}
             />

@@ -18,6 +18,7 @@ import { format } from 'date-fns';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
+import { getImageUrl } from '../../utils/imageUtils';
 
 const ReviewsPage = (props) => {
   const {
@@ -136,10 +137,7 @@ const ReviewsPage = (props) => {
 
 ReviewsPage.layout = OtherLayout;
 
-const getImageUrl = (imagePath: string) => {
-  if (!imagePath) return '';
-  return `${process.env.NEXT_PUBLIC_IMAGE_URL || ''}${imagePath}`;
-};
+// Local implementation removed in favor of global imageUtils.ts
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const slug = context.params.productId;
@@ -168,9 +166,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
       '@context': 'https://schema.org/',
       '@type': 'Product',
       name: data?.productTitle || '',
-      image:
-        'https://nobarunawsvideouploader.s3.ap-south-1.amazonaws.com/' +
-        (data?.featuredImage || ''),
+      image: getImageUrl(data?.featuredImage),
       description: data?.productTitle || '',
       sku: data?.productCode || '',
       offers: {

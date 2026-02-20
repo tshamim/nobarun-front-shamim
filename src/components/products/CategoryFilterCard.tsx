@@ -5,6 +5,7 @@ import Card from '../Card';
 import CheckBox from '../CheckBox';
 import Divider from '../Divider';
 import { H6, Paragraph, SemiSpan } from '../Typography';
+import { getImageUrl } from '../../utils/imageUtils';
 
 const CategoryFilterCard = ({
   slug,
@@ -26,7 +27,7 @@ const CategoryFilterCard = ({
               px="0px"
               py="6px"
               color="text.muted"
-              // justifyContent="flex-start"
+            // justifyContent="flex-start"
             >
               <SemiSpan
                 className="cursor-pointer"
@@ -36,7 +37,7 @@ const CategoryFilterCard = ({
               >
                 {item.icon && (
                   <img
-                    src={process.env.NEXT_PUBLIC_IMAGE_URL + item.icon}
+                    src={getImageUrl(item.icon)}
                     alt={`Icon for ${item?.name} category icon`}
                     height="30"
                     width="30"
@@ -48,17 +49,17 @@ const CategoryFilterCard = ({
             </AccordionHeader>
             {Object.keys(item.children).length
               ? Object.keys(item.children).map((key) => (
-                  <Paragraph
-                    className="cursor-pointer"
-                    fontSize="18px"
-                    color="text.muted"
-                    pl="22px"
-                    py="6px"
-                    key={key}
-                  >
-                    {item.children[key].name}
-                  </Paragraph>
-                ))
+                <Paragraph
+                  className="cursor-pointer"
+                  fontSize="18px"
+                  color="text.muted"
+                  pl="22px"
+                  py="6px"
+                  key={key}
+                >
+                  {item.children[key].name}
+                </Paragraph>
+              ))
               : null}
           </Accordion>
         ) : (
@@ -72,7 +73,7 @@ const CategoryFilterCard = ({
             >
               {item.icon && (
                 <img
-                  src={process.env.NEXT_PUBLIC_IMAGE_URL + item.icon}
+                  src={getImageUrl(item.icon)}
                   alt={`Icon for ${item?.name} category icon`}
                   height="30"
                   width="30"

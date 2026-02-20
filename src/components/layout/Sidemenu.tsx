@@ -8,6 +8,7 @@ import NavLink from '@component/nav-link/NavLink';
 import { SemiSpan } from '@component/Typography';
 import navigations from '@data/groceryNavigations';
 import React from 'react';
+import { getImageUrl } from '../../utils/imageUtils';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export interface SidemenuProps {
@@ -51,7 +52,7 @@ const Sidemenu: React.FC<SidemenuProps> = ({ categoriesList, isfixed }) => {
             <FlexBox key={item.name} mt=".5rem" ml=".5rem">
               {item?.image && (
                 <LazyLoadImage
-                  src={process.env.NEXT_PUBLIC_IMAGE_URL + item?.icon}
+                  src={getImageUrl(item?.icon)}
                   alt={item.name + 'icon'}
                   height={30}
                   width={30}

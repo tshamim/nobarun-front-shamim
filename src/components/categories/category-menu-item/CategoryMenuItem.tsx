@@ -4,6 +4,7 @@ import React from 'react';
 import imageLoader from '@component/ImageLoader';
 import Image from 'next/image';
 import Icon from '../../icon/Icon';
+
 import { StyledCategoryMenuItem } from './CategoryMenuItemStyle';
 
 interface CategoryMenuItemProps {
@@ -36,13 +37,6 @@ const CategoryMenuItem: React.FC<CategoryMenuItemProps> = ({
                 className="object-fit-cover"
               />
 
-              // <img
-              //   src={process.env.NEXT_PUBLIC_IMAGE_URL + icon}
-              //   alt={`Icon for ${title} category`}
-              //   width="30px"
-              //   height="30px"
-              //   className="object-fit-cover lazyload"
-              // />
             )}
             <span className="title">{title}</span>
             {caret.length > 0 && <Icon variant="small">chevron-right</Icon>}

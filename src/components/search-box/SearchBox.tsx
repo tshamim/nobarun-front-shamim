@@ -10,6 +10,7 @@ import useProductSearch from '@hook/useProductSearch';
 import { debounce } from 'lodash';
 import Router from 'next/router';
 import React, { useCallback, useState } from 'react';
+import { getImageUrl } from '../../utils/imageUtils';
 import Box from '../Box';
 import Icon from '../icon/Icon';
 import MenuItem from '../MenuItem';
@@ -113,7 +114,7 @@ const SearchBox: React.FC<{ count: number | string }> = ({ count }) => {
             >
               <FlexBox alignItems="center">
                 <Image
-                  src={process.env.NEXT_PUBLIC_IMAGE_URL + item.featuredImage}
+                  src={getImageUrl(item.featuredImage)}
                   height="60"
                   width="60"
                   borderRadius="10px"

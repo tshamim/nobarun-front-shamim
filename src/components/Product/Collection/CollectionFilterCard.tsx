@@ -6,6 +6,7 @@ import Divider from '@component/Divider';
 import { H6, Paragraph, SemiSpan } from '@component/Typography';
 import Link from 'next/link';
 import React from 'react';
+import { getImageUrl } from '../../../utils/imageUtils';
 
 const CollectionFilterCard = ({
   slug,
@@ -62,7 +63,7 @@ const CollectionFilterCard = ({
               >
                 {item.icon && (
                   <img
-                    src={process.env.NEXT_PUBLIC_IMAGE_URL + item.icon}
+                    src={getImageUrl(item.icon)}
                     alt={item?.name}
                     height="30"
                     width="30"

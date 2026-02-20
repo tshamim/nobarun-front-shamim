@@ -29,7 +29,7 @@ import setRecentlyViewedProduct from 'helpers/setRecentlyViewedProduct';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useState } from 'react';
-import { getHallmarkImageUrl } from '../../utils/imageUtils';
+import { getHallmarkImageUrl, getImageUrl } from '../../utils/imageUtils';
 //
 import FlexBox from '../../components/FlexBox';
 import HoverBox from '../../components/HoverBox';
@@ -62,20 +62,20 @@ const ProductDetails = ({ schema, slug, product, reviews, reviewCount }) => {
     window.addEventListener('scroll', handleStickyBar);
   }, []);
 
-useEffect(() => {
-  if (!pid || !product) return;
+  useEffect(() => {
+    if (!pid || !product) return;
 
-  const incrementView = async () => {
-    try {
-      await Client.request(INCREASE_VIEW, { slug: pid });
-      setRecentlyViewedProduct(pid, product);
-    } catch (error) {
-      console.error('Failed to increase view count:', error);
-    }
-  };
+    const incrementView = async () => {
+      try {
+        await Client.request(INCREASE_VIEW, { slug: pid });
+        setRecentlyViewedProduct(pid, product);
+      } catch (error) {
+        console.error('Failed to increase view count:', error);
+      }
+    };
 
-  incrementView();
-}, [pid, product]); // Add dependencies
+    incrementView();
+  }, [pid, product]); // Add dependencies
 
   return (
     <Fragment>
@@ -142,7 +142,7 @@ useEffect(() => {
                           <HoverBox borderRadius={5} className="client__body">
                             <img
                               data-src={
-                                process.env.NEXT_PUBLIC_IMAGE_URL + item.imgUrl
+                                getImageUrl(item.imgUrl)
                               }
                               alt={`Nobarun-Client-${item.title}`}
                               className="client__image lazyload"
@@ -153,14 +153,14 @@ useEffect(() => {
                                 objectFit: 'cover',
                               }}
                             />
-                          </HoverBox> 
+                          </HoverBox>
                           <Typography
                             fontSize="1.4rem"
                             fontWeight="600"
                             className="client__title"
                           >
                             {item.title}
-                          </Typography> 
+                          </Typography>
                         </Box>
                       </Grid>
                     ))}
@@ -191,9 +191,9 @@ useEffect(() => {
               <ProductSpotlight spotlight={product.productSpotlight} />
             )}
             {product?.keyPoints &&
-            product?.keyPoints.length === 1 &&
-            product?.keyPoints[0].title === '' &&
-            product?.keyPoints[0].content === '' ? (
+              product?.keyPoints.length === 1 &&
+              product?.keyPoints[0].title === '' &&
+              product?.keyPoints[0].content === '' ? (
               <span>&nbsp;</span>
             ) : (
               <section id="keypoints">
@@ -234,9 +234,9 @@ useEffect(() => {
         <Grid item lg={width > 1600 ? 9 : 8} xs={width > 900 ? 8 : 12}>
           <Box mr={width > 900 ? '1rem' : '0'}>
             {product?.questions &&
-            product?.questions.length === 1 &&
-            product?.questions[0].title === '' &&
-            product?.questions[0].question === '' ? (
+              product?.questions.length === 1 &&
+              product?.questions[0].title === '' &&
+              product?.questions[0].question === '' ? (
               <span>&nbsp;</span>
             ) : (
               <section id="questions">
@@ -312,11 +312,11 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
   //Count Product
   try {
     count = await useProductCount();
-  } catch (e) {}
+  } catch (e) { }
   //Query All Category
   try {
     categories = await useAllProductCategories();
-  } catch (e) {}
+  } catch (e) { }
   //Update Schema
   try {
     categories = JSON.parse(JSON.stringify(categories));

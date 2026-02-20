@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Fragment, useEffect, useRef, useState } from 'react';
+import { getImageUrl } from '../utils/imageUtils';
 // import Head from 'next/head';
 import { gql } from '@apollo/client';
 import GoToTop from '@component/goToTop/GoToTop';
@@ -62,7 +63,7 @@ const IndexPage = ({
                       // width: '100%',
                       // height: '100%',
                     }}
-                    // className="lazyload object-fit-cover"
+                  // className="lazyload object-fit-cover"
                   />
 
                   {/* <Image
@@ -129,9 +130,7 @@ const IndexPage = ({
                       <Box className="client client_related">
                         <HoverBox borderRadius={5} className="client__body">
                           <img
-                            src={
-                              process.env.NEXT_PUBLIC_IMAGE_URL + item.imgUrl
-                            }
+                            src={getImageUrl(item.imgUrl)}
                             alt={`Image for ${item.title} client`}
                             width="151px"
                             height="139px"
@@ -245,10 +244,10 @@ const IndexPage = ({
         </Box>
 
         {collections &&
-        collections.length &&
-        collections[0] &&
-        collections[0].products &&
-        collections[0].products.length ? (
+          collections.length &&
+          collections[0] &&
+          collections[0].products &&
+          collections[0].products.length ? (
           <Box mb="8rem">
             <Box my="4rem">
               <Container pb="1rem">
@@ -310,10 +309,7 @@ const IndexPage = ({
                               <Link href={`/${product.id}`}>
                                 <a>
                                   <img
-                                    data-src={
-                                      process.env.NEXT_PUBLIC_IMAGE_URL +
-                                      product.featured
-                                    }
+                                    data-src={getImageUrl(product.featured)}
                                     alt={product.productName}
                                     height={360}
                                     className="lazyload"
@@ -330,17 +326,15 @@ const IndexPage = ({
                                         <img
                                           data-src={
                                             product.populatedCategory &&
-                                            product.populatedCategory.icon
-                                              ? process.env
-                                                  .NEXT_PUBLIC_IMAGE_URL +
-                                                product.populatedCategory.icon
+                                              product.populatedCategory.icon
+                                              ? getImageUrl(product.populatedCategory.icon)
                                               : ''
                                           }
                                           width={30}
                                           height={30}
                                           alt={
                                             product.populatedCategory &&
-                                            product.populatedCategory.name
+                                              product.populatedCategory.name
                                               ? product.populatedCategory.name
                                               : ''
                                           }
@@ -351,13 +345,13 @@ const IndexPage = ({
                                           color="text.hint"
                                           title={
                                             product.populatedCategory &&
-                                            product.populatedCategory.name
+                                              product.populatedCategory.name
                                               ? product.populatedCategory.name
                                               : ''
                                           }
                                         >
                                           {product.populatedCategory &&
-                                          product.populatedCategory.name
+                                            product.populatedCategory.name
                                             ? product.populatedCategory.name
                                             : ''}
                                         </SemiSpan>
@@ -403,10 +397,10 @@ const IndexPage = ({
           </Box>
         ) : null}
         {collections &&
-        collections.length &&
-        collections[1] &&
-        collections[1].products &&
-        collections[1].products.length ? (
+          collections.length &&
+          collections[1] &&
+          collections[1].products &&
+          collections[1].products.length ? (
           <Box mb="8rem">
             <Box my="4rem">
               <Container pb="1rem">
@@ -470,8 +464,7 @@ const IndexPage = ({
                                 <a>
                                   <img
                                     data-src={
-                                      process.env.NEXT_PUBLIC_IMAGE_URL +
-                                      product.featured
+                                      getImageUrl(product.featured)
                                     }
                                     alt={product.productName}
                                     height={360}
@@ -489,17 +482,15 @@ const IndexPage = ({
                                         <img
                                           data-src={
                                             product.populatedCategory &&
-                                            product.populatedCategory.icon
-                                              ? process.env
-                                                  .NEXT_PUBLIC_IMAGE_URL +
-                                                product.populatedCategory.icon
+                                              product.populatedCategory.icon
+                                              ? getImageUrl(product.populatedCategory.icon)
                                               : ''
                                           }
                                           width={30}
                                           height={30}
                                           alt={
                                             product.populatedCategory &&
-                                            product.populatedCategory.name
+                                              product.populatedCategory.name
                                               ? product.populatedCategory.name
                                               : ''
                                           }
@@ -510,13 +501,13 @@ const IndexPage = ({
                                           color="text.hint"
                                           title={
                                             product.populatedCategory &&
-                                            product.populatedCategory.name
+                                              product.populatedCategory.name
                                               ? product.populatedCategory.name
                                               : ''
                                           }
                                         >
                                           {product.populatedCategory &&
-                                          product.populatedCategory.name
+                                            product.populatedCategory.name
                                             ? product.populatedCategory.name
                                             : ''}
                                         </SemiSpan>
@@ -562,10 +553,10 @@ const IndexPage = ({
           </Box>
         ) : null}
         {collections &&
-        collections.length &&
-        collections[2] &&
-        collections[2].products &&
-        collections[2].products.length ? (
+          collections.length &&
+          collections[2] &&
+          collections[2].products &&
+          collections[2].products.length ? (
           <Box mb="8rem">
             <Box my="4rem">
               <Container pb="1rem">
@@ -629,8 +620,7 @@ const IndexPage = ({
                                 <a>
                                   <img
                                     data-src={
-                                      process.env.NEXT_PUBLIC_IMAGE_URL +
-                                      product.featured
+                                      getImageUrl(product.featured)
                                     }
                                     alt={product.productName}
                                     height={360}
@@ -648,17 +638,15 @@ const IndexPage = ({
                                         <img
                                           data-src={
                                             product.populatedCategory &&
-                                            product.populatedCategory.icon
-                                              ? process.env
-                                                  .NEXT_PUBLIC_IMAGE_URL +
-                                                product.populatedCategory.icon
+                                              product.populatedCategory.icon
+                                              ? getImageUrl(product.populatedCategory.icon)
                                               : ''
                                           }
                                           width={30}
                                           height={30}
                                           alt={
                                             product.populatedCategory &&
-                                            product.populatedCategory.name
+                                              product.populatedCategory.name
                                               ? product.populatedCategory.name
                                               : ''
                                           }
@@ -669,13 +657,13 @@ const IndexPage = ({
                                           color="text.hint"
                                           title={
                                             product.populatedCategory &&
-                                            product.populatedCategory.name
+                                              product.populatedCategory.name
                                               ? product.populatedCategory.name
                                               : ''
                                           }
                                         >
                                           {product.populatedCategory &&
-                                          product.populatedCategory.name
+                                            product.populatedCategory.name
                                             ? product.populatedCategory.name
                                             : ''}
                                         </SemiSpan>
@@ -738,7 +726,7 @@ export async function getStaticProps() {
     categories = await useAllProductCategories();
     categories = JSON.parse(JSON.stringify(categories));
     featuredCategories = categories.filter((category) => category.isFeatured);
-  } catch (e) {}
+  } catch (e) { }
   try {
     let { data } = await client.query({
       query: gql`
@@ -752,7 +740,7 @@ export async function getStaticProps() {
       `,
     });
     clients = data.getAllFeaturedClients;
-  } catch (e) {}
+  } catch (e) { }
   try {
     let { data } = await client.query({
       query: gql`

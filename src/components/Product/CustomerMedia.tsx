@@ -8,6 +8,7 @@ import Modal from '@component/modal/Modal';
 import ProductCard12 from '@component/product-cards/HeadlineCard';
 import getYoutubeId from 'helpers/getYoutubeId';
 import { useState } from 'react';
+import { getImageUrl } from '../../utils/imageUtils';
 
 const CustomerMedia = ({ reviews }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,7 +74,7 @@ const CustomerMedia = ({ reviews }) => {
                   return (
                     <div className="product__review_modal-image">
                       <video
-                        src={process.env.NEXT_PUBLIC_IMAGE_URL + media}
+                        src={getImageUrl(media)}
                         controls={true}
                         autoPlay={true}
                         muted
@@ -87,7 +88,7 @@ const CustomerMedia = ({ reviews }) => {
                   return (
                     <div className="product__review_modal-image" key={media}>
                       <img
-                        src={process.env.NEXT_PUBLIC_IMAGE_URL + media}
+                        src={getImageUrl(media)}
                         alt={`Icon for ${media}`}
                         style={{
                           width: '100%',
@@ -153,7 +154,7 @@ const CustomerMedia = ({ reviews }) => {
                   </Icon>
 
                   <video
-                    src={process.env.NEXT_PUBLIC_IMAGE_URL + media}
+                    src={getImageUrl(media)}
                     controls={false}
                     autoPlay={false}
                     muted
@@ -181,7 +182,7 @@ const CustomerMedia = ({ reviews }) => {
                 >
                   <Image
                     key={media}
-                    src={process.env.NEXT_PUBLIC_IMAGE_URL + media}
+                    src={getImageUrl(media)}
                     alt="Review Media"
                     style={{
                       width: '100%',

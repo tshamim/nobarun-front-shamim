@@ -12,6 +12,7 @@ import { format } from 'date-fns';
 import getYoutubeId from 'helpers/getYoutubeId';
 import Link from 'next/link';
 import { useState } from 'react';
+import { getImageUrl } from '../../utils/imageUtils';
 
 const RelatedReview = ({ title, reviews, slug, reviewCount }) => {
   const width = useWindowSize();
@@ -63,7 +64,7 @@ const RelatedReview = ({ title, reviews, slug, reviewCount }) => {
                 return (
                   <div className="product__review_modal-image">
                     <video
-                      src={process.env.NEXT_PUBLIC_IMAGE_URL + image}
+                      src={getImageUrl(image)}
                       controls={true}
                       autoPlay={true}
                       muted
@@ -77,7 +78,7 @@ const RelatedReview = ({ title, reviews, slug, reviewCount }) => {
                 return (
                   <div className="product__review_modal-image" key={image}>
                     <img
-                      src={process.env.NEXT_PUBLIC_IMAGE_URL + image}
+                      src={getImageUrl(image)}
                       alt=""
                     />
                   </div>
@@ -156,12 +157,10 @@ const RelatedReview = ({ title, reviews, slug, reviewCount }) => {
               <FlexBox alignItems="center">
                 {review && review.featuredImage ? (
                   <img
-                    src={
-                      process.env.NEXT_PUBLIC_IMAGE_URL + review.featuredImage
-                    }
-                    style={{ height: '8rem', width: '8rem',marginRight: '1.5rem' }}
+                    src={getImageUrl(review.featuredImage)}
+                    style={{ height: '8rem', width: '8rem', marginRight: '1.5rem' }}
                   />
-                ): (
+                ) : (
                   <img
                     src="/assets/images/avatars/avatar.webp"
                     style={{ height: '8rem', width: '8rem', marginRight: '1rem', borderRadius: '50%', objectFit: 'cover' }}
@@ -182,7 +181,7 @@ const RelatedReview = ({ title, reviews, slug, reviewCount }) => {
                     size="large"
                     readonly
                     color="warn"
-                    // style={{ padding: '.5em 0 1.5em' }}
+                  // style={{ padding: '.5em 0 1.5em' }}
                   />
                 </Box>
               </FlexBox>
@@ -228,7 +227,7 @@ const RelatedReview = ({ title, reviews, slug, reviewCount }) => {
                         </Icon>
 
                         <video
-                          src={process.env.NEXT_PUBLIC_IMAGE_URL + image}
+                          src={getImageUrl(image)}
                           controls={false}
                           autoPlay={false}
                           muted
@@ -255,7 +254,7 @@ const RelatedReview = ({ title, reviews, slug, reviewCount }) => {
                         }}
                       >
                         <img
-                          src={process.env.NEXT_PUBLIC_IMAGE_URL + image}
+                          src={getImageUrl(image)}
                           alt=""
                           style={{
                             border: '1px solid #ddd',

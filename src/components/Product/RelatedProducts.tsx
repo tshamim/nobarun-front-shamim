@@ -6,6 +6,7 @@ import Rating from '@component/rating/Rating';
 import { Span } from '@component/Typography';
 import Link from 'next/link';
 import React from 'react';
+import { getImageUrl } from '../../utils/imageUtils';
 
 interface RelatedProductProps {
   products: any[];
@@ -21,7 +22,7 @@ const RelatedProducts: React.FC<RelatedProductProps> = ({ products }) => {
               <a>
                 <FlexBox alignItems="center">
                   <Image
-                    src={process.env.NEXT_PUBLIC_IMAGE_URL + product?.image}
+                    src={getImageUrl(product?.image)}
                     alt="Related Products"
                     height="80"
                     width="80"

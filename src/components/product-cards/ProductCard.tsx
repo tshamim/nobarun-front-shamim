@@ -7,6 +7,7 @@ import FlexBox from '../FlexBox';
 import Rating from '../rating/Rating';
 import { H3, SemiSpan } from '../Typography';
 import { StyledProductCard1 } from './CardStyle';
+import { getImageUrl } from '../../utils/imageUtils';
 
 export interface ProductCard1Props extends CardProps {
   className?: string;
@@ -44,7 +45,7 @@ const ProductCard1: React.FC<ProductCard1Props> = ({
             {/*height="360"*/}
             {/*/>*/}
             <img
-              data-src={process.env.NEXT_PUBLIC_IMAGE_URL + imgUrl}
+              data-src={getImageUrl(imgUrl)}
               alt={`Thumbnail Product Id ${id}`}
               style={{ objectFit: 'cover', width: '100%', height: '100%' }}
               className="lazyload"

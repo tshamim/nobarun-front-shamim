@@ -6,7 +6,7 @@ import Spinner from '@component/Spinner';
 import useWindowSize from '@hook/useWindowSize';
 import getYoutubeId from 'helpers/getYoutubeId';
 import React, { useEffect, useState } from 'react';
-import { getHallmarkImageUrl } from '../../utils/imageUtils';
+import { getHallmarkImageUrl, getImageUrl } from '../../utils/imageUtils';
 import Avatar from '../avatar/Avatar';
 import Box from '../Box';
 import FlexBox from '../FlexBox';
@@ -23,15 +23,15 @@ export interface ProductIntroProps {
   id?: string | number;
 }
 
-const getImageUrl = (imageObj: any) => {
+const getProductImageUrl = (imageObj: any) => {
   // Null/undefined check
   if (!imageObj || !imageObj.src) {
     return { name: '', src: '' };
   }
-  
+
   const { name = '', src: image } = imageObj;
   const src = getHallmarkImageUrl(image);
-  
+
   return { name, src };
 };
 
@@ -47,14 +47,14 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
 
   useEffect(() => {
     if (data && data.featuredImage) {
-      setSelectedImage(getImageUrl(data?.featuredImage));
+      setSelectedImage(getProductImageUrl(data?.featuredImage));
       setIsLoading(false);
     }
   }, [data?.images?.[0]]);
 
   const handleImageClick = (ind, type) => () => {
     if (type === 'image') {
-      setSelectedImage(getImageUrl(ind));
+      setSelectedImage(getProductImageUrl(ind));
       setIsVideo(false);
     }
     if (type === 'video') {
@@ -85,7 +85,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
           onClick={handleImageClick(url, 'image')}
         >
           <Avatar
-            src={process.env.NEXT_PUBLIC_IMAGE_URL + url.src}
+            src={getImageUrl(url.src)}
             borderRadius="10px"
             size={isSmall ? 50 : 65}
           />
@@ -189,7 +189,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
         onClose={() => {
           setModalOpen(false);
           setIsVideo(false);
-          setSelectedImage(getImageUrl(data?.featuredImage));
+          setSelectedImage(getProductImageUrl(data?.featuredImage));
         }}
       >
         <Card
@@ -203,7 +203,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
             onClick={() => {
               setModalOpen(false);
               setIsVideo(false);
-              setSelectedImage(getImageUrl(data?.featuredImage));
+              setSelectedImage(getProductImageUrl(data?.featuredImage));
             }}
           >
             <Icon>close</Icon>
@@ -348,6 +348,18 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
                   alt={selectedImage.name}
                   loading="eager"
                   className="product__hero-image"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    // If hallmark image fails, fallback to original
+                    if (target.src.includes('hallmark-')) {
+                      // Attempt to find original image source
+                      // We can try to reconstruct it or just use the raw src if available
+                      const originalUrl = getImageUrl(data?.featuredImage?.src);
+                      if (target.src !== originalUrl) {
+                        target.src = originalUrl;
+                      }
+                    }
+                  }}
                   style={{
                     objectFit: 'contain',
                     width: '100%',
@@ -370,7 +382,7 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
                 {/* for desktop */}
                 <Grid style={{ width: '100%', textAlign: 'center', marginTop: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                   {!isPhone && banglaVersionHTML}
-                </Grid> 
+                </Grid>
 
               </Grid>
             ) : (
@@ -409,11 +421,11 @@ const ProductIntro: React.FC<ProductIntroProps> = ({ data }) => {
               </div>
             )}
 
-            
+
           </Box>
         </FlexBox>
 
-        
+
 
         {/* <ShareButton
           title={data?.productName}

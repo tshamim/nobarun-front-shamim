@@ -1,6 +1,7 @@
 import FlexBox from '@component/FlexBox';
 import ProductCard12 from '@component/product-cards/HeadlineCard';
 import Typography from '@component/Typography';
+import { getImageUrl } from '../../utils/imageUtils';
 
 const Ammenities = ({ contact }) => {
   return (
@@ -12,7 +13,7 @@ const Ammenities = ({ contact }) => {
             <li className="mb-10" key={amenity.title}>
               <FlexBox alignItems="center">
                 <img
-                  src={process.env.NEXT_PUBLIC_IMAGE_URL + amenity.image}
+                  src={getImageUrl(amenity.image)}
                   alt={`icon for ${amenity.title} of Nobarun`}
                   style={{ height: '4rem', width: '4rem' }}
                 />

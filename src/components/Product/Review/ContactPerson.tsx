@@ -5,6 +5,7 @@ import Icon from '@component/icon/Icon';
 import Image from '@component/Image';
 import Typography, { H5, Paragraph } from '@component/Typography';
 import React from 'react';
+import { getImageUrl } from '../../../utils/imageUtils';
 
 const ContactPerson = ({
   slug,
@@ -24,7 +25,7 @@ Please send me more details.
       {contact?.companyLogo && (
         <div className="product__contact-logo">
           <Image
-            src={process.env.NEXT_PUBLIC_IMAGE_URL + contact?.companyLogo}
+            src={getImageUrl(contact?.companyLogo)}
             alt="logo"
             maxHeight="60px"
           />
@@ -43,9 +44,8 @@ Please send me more details.
       {contact?.whatsAppNumber && (
         <a
           target="_blank"
-          href={`https://api.whatsapp.com/send?phone=${
-            contact?.whatsAppNumber
-          }&text=${encodeURI(message)}`}
+          href={`https://api.whatsapp.com/send?phone=${contact?.whatsAppNumber
+            }&text=${encodeURI(message)}`}
         >
           <FlexBox alignItems="center" mb=".8rem">
             <div className="product__contact-icon">

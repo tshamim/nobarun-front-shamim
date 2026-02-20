@@ -5,6 +5,7 @@ import Rating from '@component/rating/Rating';
 import { H1, Span } from '@component/Typography';
 import useWindowSize from '@hook/useWindowSize';
 import Scrollspy from 'react-scrollspy';
+import { getImageUrl } from '../../utils/imageUtils';
 
 interface DesktopStickyBarProps {
   active: boolean;
@@ -20,18 +21,14 @@ const DesktopStickyBar = (props: DesktopStickyBarProps) => {
     <>
       {!isTablet && (
         <Box
-          className={`product__sticky ${
-            active ? 'product__sticky--active' : ''
-          }`}
+          className={`product__sticky ${active ? 'product__sticky--active' : ''
+            }`}
         >
           <Container>
             <FlexBox alignItems="center" justifyContent="space-between">
               <FlexBox width={width > 1400 ? '50%' : '42%'}>
                 <img
-                  src={
-                    process.env.NEXT_PUBLIC_IMAGE_URL +
-                    product?.intro?.featuredImage?.src
-                  }
+                  src={getImageUrl(product?.intro?.featuredImage?.src)}
                   alt="1121"
                   className="product__sticky-image"
                 />

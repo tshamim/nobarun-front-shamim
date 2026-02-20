@@ -3,6 +3,7 @@ import Card from '@component/Card';
 import FlexBox from '@component/FlexBox';
 import Typography, { H2 } from '@component/Typography';
 import useWindowSize from '@hook/useWindowSize';
+import { getImageUrl } from '../../utils/imageUtils';
 
 const Features = ({ features }) => {
   const width = useWindowSize();
@@ -33,9 +34,7 @@ const Features = ({ features }) => {
             <span className="product__keypoints-image">
               {feature?.images.length > 0 ? (
                 <img
-                  data-src={
-                    process.env.NEXT_PUBLIC_IMAGE_URL + feature?.images[0]
-                  }
+                  data-src={getImageUrl(feature?.images[0])}
                   alt={`Featured Image for ${feature.title}`}
                   className="lazyload"
                 />

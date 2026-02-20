@@ -1,5 +1,8 @@
+import { getImageUrl } from '../utils/imageUtils';
+
 const imageLoader = ({ src, width = 100, height = 100, quality = 75 }) => {
-  return `https://d1v2sbji1mlin2.cloudfront.net/${src}?w=${width}&h=${height}&q=${quality}`;
+  const fullUrl = getImageUrl(src);
+  return `${fullUrl}?w=${width}&h=${height}&q=${quality}`;
 };
 
 export default imageLoader;

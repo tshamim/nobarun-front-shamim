@@ -16,6 +16,7 @@ import {
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Image from 'next/image';
+import { getImageUrl } from '../utils/imageUtils';
 import AppLayout from '../components/layout/AppLayout';
 import ProductCard1 from '../components/product-cards/ProductCard';
 import client from '../config/ApolloClient';
@@ -25,24 +26,24 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
     <>
       <Head>
         <title>Nobarun International - Leading Supplier of Commercial Kitchen & Security Equipment in Bangladesh</title>
-        <meta 
-          name="description" 
-          content="Nobarun International is Bangladesh's premier supplier of digital gate systems, commercial kitchen equipment, supermarket equipment, cold storage solutions, and restaurant equipment since 2017. Quality products with expert service." 
+        <meta
+          name="description"
+          content="Nobarun International is Bangladesh's premier supplier of digital gate systems, commercial kitchen equipment, supermarket equipment, cold storage solutions, and restaurant equipment since 2017. Quality products with expert service."
         />
-        <meta 
-          name="keywords" 
-          content="commercial kitchen equipment Bangladesh, digital gate systems, supermarket equipment, cold storage solutions, restaurant equipment, car parking management, security products, Nobarun International, kitchen equipment Dhaka" 
+        <meta
+          name="keywords"
+          content="commercial kitchen equipment Bangladesh, digital gate systems, supermarket equipment, cold storage solutions, restaurant equipment, car parking management, security products, Nobarun International, kitchen equipment Dhaka"
         />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content="Nobarun International - Commercial Kitchen & Security Equipment" />
         <meta property="og:description" content="Leading supplier of digital safety & security products, commercial kitchen equipment, and supermarket solutions in Bangladesh since 2017." />
         <meta property="og:url" content="https://nobarun.com" />
-        
+
         {/* Twitter */}
         <meta name="twitter:title" content="Nobarun International - Commercial Kitchen & Security Equipment" />
         <meta name="twitter:description" content="Leading supplier of digital safety & security products, commercial kitchen equipment, and supermarket solutions in Bangladesh since 2017." />
-        
+
         <link rel="canonical" href="https://nobarun.com" />
       </Head>
       <main>
@@ -95,7 +96,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
                     src="/assets/images/banners/slider-3.webp"
                     alt="hero Image Three"
                     className="desktop-banner"
-                    // loading="lazy"
+                  // loading="lazy"
                   />
                   <Image
                     src="/assets/images/banners/mobile/slider-3.webp"
@@ -111,7 +112,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
                     src="/assets/images/banners/slider-4.webp"
                     alt="hero Image Four"
                     className="desktop-banner"
-                    // loading="lazy"
+                  // loading="lazy"
                   />
                   <Image
                     src="/assets/images/banners/mobile/slider-4.webp"
@@ -127,7 +128,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
                     src="/assets/images/banners/slider-5.webp"
                     alt="hero Image Five"
                     className="desktop-banner"
-                    // loading="lazy"
+                  // loading="lazy"
                   />
                   <Image
                     src="/assets/images/banners/mobile/slider-5.webp"
@@ -178,7 +179,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
                     <a>
                       <div className="client-box">
                         <img
-                          src={process.env.NEXT_PUBLIC_IMAGE_URL + item.imgUrl}
+                          src={getImageUrl(item.imgUrl)}
                           alt={`Image for ${item.title} client`}
                           className="lazyload"
                           loading="lazy"
@@ -206,7 +207,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
                     <div className="category-box">
                       <div className="img-placee">
                         <img
-                          src={process.env.NEXT_PUBLIC_IMAGE_URL + category.image}
+                          src={getImageUrl(category.image)}
                           alt={`Thumbnail for ${category.name} featured category`}
                           loading="lazy"
                         />
@@ -290,7 +291,7 @@ export async function getStaticProps() {
     categories = await useAllProductCategories();
     categories = JSON.parse(JSON.stringify(categories));
     featuredCategories = categories.filter((category) => category.isFeatured);
-  } catch (e) {}
+  } catch (e) { }
   try {
     let { data } = await client.query({
       query: gql`
@@ -304,8 +305,8 @@ export async function getStaticProps() {
       `,
     });
     clients = data.getAllFeaturedClients;
-  } catch (e) {}
-  
+  } catch (e) { }
+
   try {
     let { data } = await client.query({
       query: gql`
@@ -332,18 +333,18 @@ export async function getStaticProps() {
       `,
     });
     collections = data.getAllPopulatedCollection;
-  } catch (e) {}
+  } catch (e) { }
 
-    return {
-      props: {
-        clients,
-        categories,
-        featuredCategories,
-        collections,
-        count,
-      },
-      revalidate: 40,
-    };
-  }
+  return {
+    props: {
+      clients,
+      categories,
+      featuredCategories,
+      collections,
+      count,
+    },
+    revalidate: 40,
+  };
+}
 
 export default HomePage;

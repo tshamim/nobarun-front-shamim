@@ -5,6 +5,7 @@ import Divider from '@component/Divider';
 import FlexBox from '@component/FlexBox';
 import { H2, Paragraph } from '@component/Typography';
 import Link from 'next/link';
+import { getImageUrl } from '../../utils/imageUtils';
 
 interface BlogCardProps {
   postTitle: string;
@@ -28,10 +29,9 @@ const BlogCard = (props: BlogCardProps) => {
               width="100%"
             /> */}
             <img
-              src={process.env.NEXT_PUBLIC_IMAGE_URL + image}
+              src={getImageUrl(image)}
               alt={`Thumbnail for ${slug} blog post`}
               style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-              // className="lazyload"
             />
           </Box>
           <H2 fontSize="32px" mb="1rem">

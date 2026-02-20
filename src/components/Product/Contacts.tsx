@@ -6,6 +6,7 @@ import Icon from '@component/icon/Icon';
 import Typography, { Paragraph } from '@component/Typography';
 // import { getDay, getHours } from 'date-fns';
 import { Fragment } from 'react';
+import { getImageUrl } from '../../utils/imageUtils';
 
 const Contacts = ({ slug, productName, productCode, contact, setIsOpen }) => {
   // const currentDate = new Date();
@@ -25,7 +26,7 @@ Please send me more details.
             <img
               width={200}
               height={51}
-              src={process.env.NEXT_PUBLIC_IMAGE_URL + contact?.companyLogo}
+              src={getImageUrl(contact?.companyLogo)}
               alt="logo"
               style={{ maxHeight: '60px' }}
             />
@@ -44,9 +45,8 @@ Please send me more details.
         {contact?.whatsAppNumber && (
           <a
             target="_blank"
-            href={`https://api.whatsapp.com/send?phone=${
-              contact?.whatsAppNumber
-            }&text=${encodeURI(message)}`}
+            href={`https://api.whatsapp.com/send?phone=${contact?.whatsAppNumber
+              }&text=${encodeURI(message)}`}
           >
             <FlexBox alignItems="center" mb=".8rem">
               <div className="product__contact-icon">

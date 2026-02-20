@@ -4,6 +4,7 @@ import Icon from '@component/icon/Icon';
 import Image from '@component/Image';
 import Typography, { Paragraph } from '@component/Typography';
 import { Fragment } from 'react';
+import { getImageUrl } from '../../utils/imageUtils';
 
 const BlogContact = ({ slug, contact }) => {
   const message = `Hello ${contact?.name},
@@ -18,7 +19,7 @@ Can you explain me more? Do you sell any product regarding this Article?
         {contact?.companyLogo && (
           <div className="product__contact-logo">
             <Image
-              src={process.env.NEXT_PUBLIC_IMAGE_URL + contact?.companyLogo}
+              src={getImageUrl(contact?.companyLogo)}
               alt="comapny logo"
               maxHeight="60px"
             />
@@ -37,9 +38,8 @@ Can you explain me more? Do you sell any product regarding this Article?
         {contact?.whatsAppNumber && (
           <a
             target="_blank"
-            href={`https://api.whatsapp.com/send?phone=${
-              contact?.whatsAppNumber
-            }&text=${encodeURI(message)}`}
+            href={`https://api.whatsapp.com/send?phone=${contact?.whatsAppNumber
+              }&text=${encodeURI(message)}`}
           >
             <FlexBox alignItems="center" mb=".8rem">
               <div className="product__contact-icon">

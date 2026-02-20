@@ -9,6 +9,7 @@ import Box from '../../Box';
 import Container from '../../Container';
 import Grid from '../../grid/Grid';
 import CategorySectionHeader from './CategorySectionHeader';
+import { getImageUrl } from '../../../utils/imageUtils';
 
 interface CategoriesProps {
   categories: any[];
@@ -46,7 +47,7 @@ const Categories: React.FC<CategoriesProps> = ({ categories }) => {
                           className="featuredCategories__image"
                         >
                           <img
-                            data-src={process.env.NEXT_PUBLIC_IMAGE_URL + item.image}
+                            data-src={getImageUrl(item.image)}
                             alt={item.name}
                             style={{ height: '100%', width: '100%' }}
                             className="lazyload"

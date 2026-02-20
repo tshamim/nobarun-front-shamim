@@ -5,6 +5,7 @@ import HoverBox from '@component/HoverBox';
 import { H4 } from '@component/Typography';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import { getImageUrl } from '../../utils/imageUtils';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const RecentViewedProducts: React.FC = () => {
@@ -33,7 +34,7 @@ const RecentViewedProducts: React.FC = () => {
                   >
                     {product.image ? (
                       <LazyLoadImage
-                        src={process.env.NEXT_PUBLIC_IMAGE_URL + product.image}
+                        src={getImageUrl(product.image)}
                         alt={`Thumbnail for ${product.title} product`}
                         effect="blur"
                         style={{

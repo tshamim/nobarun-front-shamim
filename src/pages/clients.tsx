@@ -8,6 +8,7 @@ import useProductCount from '@hook/useNoOfProduct';
 import useWindowSize from '@hook/useWindowSize';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import { getImageUrl } from '../utils/imageUtils';
 // ...existing code...
 const ClientsPage = ({ clients }) => {
   const [allLoadedCategory, setAllLoadedCategory] = useState('');
@@ -73,9 +74,9 @@ const ClientsPage = ({ clients }) => {
           textAlign: 'center',
           boxShadow: '0 8px 24px rgba(28, 163, 70, 0.2)',
         }}>
-          <H1 
-            fontSize="3.6rem" 
-            fontWeight="700" 
+          <H1
+            fontSize="3.6rem"
+            fontWeight="700"
             color="#fff"
             mb="1rem"
             style={{
@@ -102,10 +103,10 @@ const ClientsPage = ({ clients }) => {
             allLoadedCategory === category.categoryName
               ? category.clients.length
               : noOfClients;
-          
+
           return (
-            <Box 
-              mb="5rem" 
+            <Box
+              mb="5rem"
               key={category.categoryName}
               style={{
                 animation: `fadeInUp 0.6s ease-out ${categoryIndex * 0.1}s both`,
@@ -126,8 +127,8 @@ const ClientsPage = ({ clients }) => {
                   borderRadius: '2px',
                   marginRight: '1.5rem',
                 }} />
-                <H2 
-                  fontSize="2.8rem" 
+                <H2
+                  fontSize="2.8rem"
                   fontWeight="700"
                   color="#2d3748"
                   mb="0"
@@ -149,8 +150,8 @@ const ClientsPage = ({ clients }) => {
                       animation: `fadeInScale 0.5s ease-out ${idx * 0.05}s both`,
                     }}
                   >
-                    <HoverBox 
-                      borderRadius={8} 
+                    <HoverBox
+                      borderRadius={8}
                       className="client__body"
                       style={{
                         background: '#fff',
@@ -165,7 +166,7 @@ const ClientsPage = ({ clients }) => {
                     >
                       <img
                         alt={`${item.clientName} - ${category.categoryName}`}
-                        src={process.env.NEXT_PUBLIC_IMAGE_URL + item.logo}
+                        src={getImageUrl(item.logo)}
                         style={{
                           maxWidth: '100%',
                           maxHeight: '100%',
@@ -268,7 +269,7 @@ export async function getServerSideProps() {
   } catch (e) {
     console.error('Error fetching product count:', e);
   }
-  
+
   return {
     props: {
       clients,

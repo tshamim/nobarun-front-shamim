@@ -4,6 +4,7 @@ import HoverBox from '@component/HoverBox';
 import { H2, H4 } from '@component/Typography';
 import React from 'react';
 import styled from 'styled-components';
+import { getImageUrl } from '../../utils/imageUtils';
 
 interface ClientProps {
   slides?: number;
@@ -17,7 +18,7 @@ const RelatedClients: React.FC<ClientProps> = (props) => {
     <Box key={ind} className="client client_related" mr="1rem">
       <HoverBox borderRadius={5} className="client__body">
         <img
-          src={process.env.NEXT_PUBLIC_IMAGE_URL + item.imgUrl}
+          src={getImageUrl(item.imgUrl)}
           alt={`Nobarun-Client-${item.title}`}
           className="client__image"
         />
