@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider next -p 4000",
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider next build",
-    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider next start -p 4000",
+    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider next start -p 4000 -H 0.0.0.0",
     "build-static-page": "cross-env NODE_OPTIONS=--openssl-legacy-provider next build && next export",
     "type-check": "tsc",
     "heroku-postbuild": "npm run build"
@@ -56,7 +56,7 @@
     "typescript": "^4.2.4"
   },
   "engines": {
-    "node": "20.x"
+    "node": ">=20.x"
   },
   "license": "MIT"
 }
