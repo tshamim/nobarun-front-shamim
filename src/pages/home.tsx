@@ -742,7 +742,9 @@ export async function getStaticProps() {
       `,
     });
     clients = data.getAllFeaturedClients;
-  } catch (e) { }
+  } catch (e) {
+    console.error('[home][getStaticProps] Clients error:', e.message || e);
+  }
   try {
     let { data } = await client.query({
       query: gql`
