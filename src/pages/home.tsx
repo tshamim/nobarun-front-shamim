@@ -726,7 +726,9 @@ export async function getStaticProps() {
     categories = await useAllProductCategories();
     categories = JSON.parse(JSON.stringify(categories));
     featuredCategories = categories.filter((category) => category.isFeatured);
-  } catch (e) { }
+  } catch (e) {
+    console.error('[home][getStaticProps] Categories error:', e.message || e);
+  }
   try {
     let { data } = await client.query({
       query: gql`
@@ -768,6 +770,7 @@ export async function getStaticProps() {
     });
     collections = data.getAllPopulatedCollection;
   } catch (e) {
+    console.error('[home][getStaticProps] Collections error:', e.message || e);
   } finally {
     return {
       props: {

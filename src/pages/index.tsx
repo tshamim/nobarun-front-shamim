@@ -291,7 +291,9 @@ export async function getStaticProps() {
     categories = await useAllProductCategories();
     categories = JSON.parse(JSON.stringify(categories));
     featuredCategories = categories.filter((category) => category.isFeatured);
-  } catch (e) { }
+  } catch (e) {
+    console.error('[index][getStaticProps] Categories error:', e.message || e);
+  }
   try {
     let { data } = await client.query({
       query: gql`
@@ -305,7 +307,9 @@ export async function getStaticProps() {
       `,
     });
     clients = data.getAllFeaturedClients;
-  } catch (e) { }
+  } catch (e) {
+    console.error('[index][getStaticProps] Clients error:', e.message || e);
+  }
 
   try {
     let { data } = await client.query({
@@ -333,7 +337,9 @@ export async function getStaticProps() {
       `,
     });
     collections = data.getAllPopulatedCollection;
-  } catch (e) { }
+  } catch (e) {
+    console.error('[index][getStaticProps] Collections error:', e.message || e);
+  }
 
   return {
     props: {
