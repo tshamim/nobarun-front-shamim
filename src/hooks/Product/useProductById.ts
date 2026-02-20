@@ -86,19 +86,27 @@ const GET_PRODUCT_BY_ID = gql`
 const useProductById = async (pid) => {
   try {
     const data = await Client.request(GET_PRODUCT_BY_ID, { id: pid });
+    console.log('--- Product Data Fetch Debug ---');
+    console.log('Slug:', pid);
+    console.log('Raw API Response:', data);
+    if (data?.getPopulatedProductBySlug?.populatedRelatedProducts) {
+      console.log('Populated Related Products:', data.getPopulatedProductBySlug.populatedRelatedProducts);
+    } else {
+      console.warn('No populatedRelatedProducts found in API response');
+    }
+    console.log('--------------------------------');
     const productById = data?.getPopulatedProductBySlug?.productData;
-    console.log('Raw API Response for Product:', JSON.stringify(data, null, 2));
     // console.log(data?.getPopulatedProductBySlug);
     const product = {
       intro: {
-        id: productById && productById.product && productById.product.id ? productById.product.id:null ,
+        id: productById && productById.product && productById.product.id ? productById.product.id : null,
         productName: productById?.product?.productName,
         price: productById?.product?.price,
         originalPrice: productById?.product?.originalPrice,
         review: productById?.reviewCount,
         rating: productById?.ratingAverage,
         productCode: productById?.product?.productCode,
-        stockStatus: productById && productById.product && productById.product.stockStatus && productById.product.stockStatus.title ? productById.product.stockStatus.title:null ,
+        stockStatus: productById && productById.product && productById.product.stockStatus && productById.product.stockStatus.title ? productById.product.stockStatus.title : null,
         featuredImage: productById?.product?.imageObject?.find(
           (img) => img.src === productById?.product?.featured,
         ) || (productById?.product?.featured ? { name: '', src: productById.product.featured } : { name: '', src: '' }),
