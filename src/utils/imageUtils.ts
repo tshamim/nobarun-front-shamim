@@ -15,6 +15,11 @@ export const getImageUrl = (imagePath: string | undefined | null): string => {
     baseUrl = 'https://d1v2sbji1mlin2.cloudfront.net/';
   }
 
+  // Ensure trailing slash
+  if (!baseUrl.endsWith('/')) {
+    baseUrl += '/';
+  }
+
   // Detect if it's already a full URL
   const isFullUrl = imagePath.startsWith('http://') || imagePath.startsWith('https://');
 
