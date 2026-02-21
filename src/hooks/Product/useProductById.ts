@@ -51,6 +51,7 @@ const GET_PRODUCT_BY_ID = gql`
           seoTitle: SeoTitle
           description: title
           keywords
+          relatedProducts
           relatedClients {
             title: clientName
             imgUrl: logo
@@ -88,12 +89,11 @@ const useProductById = async (pid) => {
     const data = await Client.request(GET_PRODUCT_BY_ID, { id: pid });
     console.log('--- Product Data Fetch Debug ---');
     console.log('Slug:', pid);
-    console.log('Raw API Response:', data);
-    if (data?.getPopulatedProductBySlug?.populatedRelatedProducts) {
-      console.log('Populated Related Products:', data.getPopulatedProductBySlug.populatedRelatedProducts);
-    } else {
-      console.warn('No populatedRelatedProducts found in API response');
-    }
+    console.log('Raw API Response Map:', {
+      'Raw Related Product Strings': data?.getPopulatedProductBySlug?.productData?.product?.relatedProducts,
+      'Populated Related Products Count': data?.getPopulatedProductBySlug?.populatedRelatedProducts?.length
+    });
+    console.log('Populated Related Products:', data?.getPopulatedProductBySlug?.populatedRelatedProducts);
     console.log('--------------------------------');
     const productById = data?.getPopulatedProductBySlug?.productData;
     // console.log(data?.getPopulatedProductBySlug);
