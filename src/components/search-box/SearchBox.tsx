@@ -29,7 +29,7 @@ const SearchBox: React.FC<{ count: number | string }> = ({ count }) => {
     else {
       setLoading(true);
       const results = await useProductSearch(value);
-      setResultList(results);
+      setResultList(results || []);
       setLoading(false);
     }
   }, 200);
@@ -86,7 +86,7 @@ const SearchBox: React.FC<{ count: number | string }> = ({ count }) => {
           marginTop: '0px',
           left: 0,
           right: 0,
-          animation: resultList.length > 0 || loading || keyword !== '' ? 'fadeIn 0.3s ease' : 'none',
+          animation: resultList?.length > 0 || loading || keyword !== '' ? 'fadeIn 0.3s ease' : 'none',
         }}
       >
         {loading ? (
