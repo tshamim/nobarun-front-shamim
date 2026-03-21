@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /*
 Sitemap: https://www.nobarunbd.com/sitemap.xml
+Disallow: /reviews
