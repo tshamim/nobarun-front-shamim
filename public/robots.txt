@@ -1,4 +1,19 @@
 User-agent: *
-Allow: /*
-Sitemap: https://www.nobarunbd.com/sitemap.xml
+Allow: /
+
+# Important pages allow (optional)
+Allow: /wp-content/uploads/
+
+# Block unnecessary pages
 Disallow: /reviews
+Disallow: /*/reviews
+Disallow: /search
+Disallow: /cart
+Disallow: /checkout
+Disallow: /login
+Disallow: /admin
+# Block parameters (optional advanced)
+Disallow: /*?*
+
+# Sitemap
+Sitemap: https://www.nobarunbd.com/sitemap.xml
