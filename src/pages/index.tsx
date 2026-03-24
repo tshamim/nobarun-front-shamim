@@ -25,7 +25,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
   return (
     <>
       <Head>
-        <title>Nobarun International - Leading Supplier of Commercial Kitchen & Security Equipment in Bangladesh</title>
+        <title>Nobarun International - Proven Partner Since 2017</title>
         <meta
           name="description"
           content="Nobarun International is Bangladesh's premier supplier of digital gate systems, commercial kitchen equipment, supermarket equipment, cold storage solutions, and restaurant equipment since 2017. Quality products with expert service."
