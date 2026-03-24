@@ -36,15 +36,15 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
         />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Nobarun International - Commercial Kitchen & Security Equipment" />
-        <meta property="og:description" content="Leading supplier of digital safety & security products, commercial kitchen equipment, and supermarket solutions in Bangladesh since 2017." />
+        <meta property="og:title" content="Nobarun International - Proven Partner Since 2017" />
+        <meta property="og:description" content="Supplier of digital safety & security products, commercial kitchen equipment, and supermarket solutions in Bangladesh since 2017." />
         <meta property="og:url" content="https://nobarun.com" />
 
         {/* Twitter */}
-        <meta name="twitter:title" content="Nobarun International - Commercial Kitchen & Security Equipment" />
-        <meta name="twitter:description" content="Leading supplier of digital safety & security products, commercial kitchen equipment, and supermarket solutions in Bangladesh since 2017." />
+        <meta name="twitter:title" content="Nobarun International - Proven Partner Since 2017" />
+        <meta name="twitter:description" content="Supplier of digital safety & security products, commercial kitchen equipment, and supermarket solutions in Bangladesh since 2017." />
 
-        <link rel="canonical" href="https://nobarun.com" />
+        <link rel="canonical" href="https://nobarunbd.com" />
       </Head>
       <main>
         <GoToTop showBelow={250} />
@@ -150,7 +150,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
           <div className="container">
             <div className="client-heading">
               <h2>Our Clients</h2>
-              <Link href={`/clients`}>
+              <Link href={/clients}>
                 <a>
                   <span>View All</span>
                   <svg
@@ -180,7 +180,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
                       <div className="client-box">
                         <img
                           src={getImageUrl(item.imgUrl)}
-                          alt={`Image for ${item.title} client`}
+                          alt={Image for ${item.title} client}
                           className="lazyload"
                           loading="lazy"
                         />
@@ -202,13 +202,13 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
             </div>
             <div className="category-main-wrap">
               {featuredCategories.map((category, index) => (
-                <Link key={index} href={`/category/${category.slug}`}>
+                <Link key={index} href={/category/${category.slug}}>
                   <a>
                     <div className="category-box">
                       <div className="img-placee">
                         <img
                           src={getImageUrl(category.image)}
-                          alt={`Thumbnail for ${category.name} featured category`}
+                          alt={Thumbnail for ${category.name} featured category}
                           loading="lazy"
                         />
                       </div>
@@ -230,7 +230,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
                 <div className="collection-header">
                   <h2>{collection.name}</h2>
                   {collection.slug && (
-                    <Link href={`/product/collection/${collection.slug}`}>
+                    <Link href={/product/collection/${collection.slug}}>
                       <a className="view-all-link">
                         <span>View All</span>
                         <svg
@@ -354,3 +354,6 @@ export async function getStaticProps() {
 }
 
 export default HomePage;
+
+
+https://github.com/tshamim/nobarun-front-shamim/edit/main/src/pages/index.tsx
