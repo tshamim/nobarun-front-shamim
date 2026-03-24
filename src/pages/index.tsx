@@ -26,10 +26,12 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
     <>
       <Head>
         <title>Nobarun International - Proven Partner Since 2017</title>
+
         <meta
           name="description"
-          content="Supplier of Digital Safety & Security Products, Supermarket Equipment, Slaughterhouse Equipment, and Commercial Kitchen Equipment in Bangladesh since 2017.."
+          content="Supplier of Digital Safety & Security Products, Supermarket Equipment, Slaughterhouse Equipment, and Commercial Kitchen Equipment in Bangladesh since 2017."
         />
+
         <meta
           name="keywords"
           content="commercial kitchen equipment Bangladesh, digital gate systems, supermarket equipment, cold storage solutions, restaurant equipment, car parking management, security products, Nobarun International, kitchen equipment Dhaka"
@@ -38,18 +40,25 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
         {/* Open Graph */}
         <meta property="og:title" content="Nobarun International - Proven Partner Since 2017" />
         <meta property="og:description" content="Supplier of digital safety & security products, commercial kitchen equipment, and supermarket solutions in Bangladesh since 2017." />
-        <meta property="og:url" content="https://www.nobarunbd.com" />
+        <meta property="og:url" content="https://www.nobarunbd.com/" />
+        <meta property="og:image" content="https://www.nobarunbd.com/cover.jpeg" />
+        <meta property="og:type" content="website" />
 
         {/* Twitter */}
         <meta name="twitter:title" content="Nobarun International - Proven Partner Since 2017" />
         <meta name="twitter:description" content="Supplier of digital safety & security products, commercial kitchen equipment, and supermarket solutions in Bangladesh since 2017." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.nobarunbd.com/cover.jpeg" />
 
-        <link rel="canonical" href="https://nobarunbd.com" />
+        {/* Canonical */}
+        <link rel="canonical" href="https://www.nobarunbd.com/" />
       </Head>
+
       <main>
         <GoToTop showBelow={250} />
         <Navbar navListOpen={true} height={400} categories={categories} />
-        {/* hero section start */}
+
+        {/* hero section */}
         <section className="hero-section">
           <div className="container">
             <div className="hero-img">
@@ -59,159 +68,76 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
                 autoplay={{ delay: 5000 }}
                 modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
               >
-                <SwiperSlide>
-                  <img
-                    src="/assets/images/banners/slider-1.webp"
-                    alt="hero Image one"
-                    className="desktop-banner"
-                  />
-                  <Image
-                    src="/assets/images/banners/mobile/slider-1.webp"
-                    width={550}
-                    height={245}
-                    alt="hero Mobile Image one"
-                    className="mobile-banner"
-                    priority
-                    layout="responsive"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img
-                    src="/assets/images/banners/slider-2.webp"
-                    alt="hero Image two"
-                    className="desktop-banner"
-                  />
-                  <Image
-                    src="/assets/images/banners/mobile/slider-2.webp"
-                    width={550}
-                    height={245}
-                    alt="hero Mobile Image two"
-                    className="mobile-banner"
-                    layout="responsive"
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img
-                    src="/assets/images/banners/slider-3.webp"
-                    alt="hero Image Three"
-                    className="desktop-banner"
-                  // loading="lazy"
-                  />
-                  <Image
-                    src="/assets/images/banners/mobile/slider-3.webp"
-                    width={550}
-                    height={245}
-                    alt="hero Mobile Image three"
-                    className="mobile-banner"
-                    layout="responsive"
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img
-                    src="/assets/images/banners/slider-4.webp"
-                    alt="hero Image Four"
-                    className="desktop-banner"
-                  // loading="lazy"
-                  />
-                  <Image
-                    src="/assets/images/banners/mobile/slider-4.webp"
-                    width={550}
-                    height={245}
-                    alt="hero Mobile Image Four"
-                    className="mobile-banner"
-                    layout="responsive"
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img
-                    src="/assets/images/banners/slider-5.webp"
-                    alt="hero Image Five"
-                    className="desktop-banner"
-                  // loading="lazy"
-                  />
-                  <Image
-                    src="/assets/images/banners/mobile/slider-5.webp"
-                    width={550}
-                    height={245}
-                    alt="hero Mobile Image Five"
-                    className="mobile-banner"
-                    layout="responsive"
-                  />
-                </SwiperSlide>
+                {[1, 2, 3, 4, 5].map((item) => (
+                  <SwiperSlide key={item}>
+                    <img
+                      src={`/assets/images/banners/slider-${item}.webp`}
+                      alt={`hero Image ${item}`}
+                      className="desktop-banner"
+                    />
+                    <Image
+                      src={`/assets/images/banners/mobile/slider-${item}.webp`}
+                      width={550}
+                      height={245}
+                      alt={`hero Mobile Image ${item}`}
+                      className="mobile-banner"
+                      layout="responsive"
+                      priority={item === 1}
+                    />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
           </div>
         </section>
-        {/* hero section end */}
 
-        {/* out clients section start */}
+        {/* clients */}
         <section className="our-clients-section">
           <div className="container">
             <div className="client-heading">
               <h2>Our Clients</h2>
-              <Link href={/clients}>
+
+              <Link href="/clients">
                 <a>
                   <span>View All</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    width="20"
-                    height="20"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5"
-                    />
-                  </svg>
                 </a>
               </Link>
             </div>
+
             <div className="clients-main-wrap">
-              {clients
-                .filter((item, index) => item && index < 8)
-                .map((item, index) => (
-                  <Link href="#" key={index}>
-                    <a>
-                      <div className="client-box">
-                        <img
-                          src={getImageUrl(item.imgUrl)}
-                          alt={Image for ${item.title} client}
-                          className="lazyload"
-                          loading="lazy"
-                        />
-                        <p>{item.title}</p>
-                      </div>
-                    </a>
-                  </Link>
-                ))}
+              {clients.slice(0, 8).map((item, index) => (
+                <Link href="#" key={index}>
+                  <a>
+                    <div className="client-box">
+                      <img
+                        src={getImageUrl(item.imgUrl)}
+                        alt={`Image for ${item.title} client`}
+                        loading="lazy"
+                      />
+                      <p>{item.title}</p>
+                    </div>
+                  </a>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
-        {/* out clients section end */}
 
-        {/* featured categories section start */}
+        {/* featured categories */}
         <section className="featured-categories-section">
           <div className="container">
-            <div className="category-heading">
-              <h2>Featured Categories</h2>
-            </div>
+            <h2>Featured Categories</h2>
+
             <div className="category-main-wrap">
               {featuredCategories.map((category, index) => (
-                <Link key={index} href={/category/${category.slug}}>
+                <Link key={index} href={`/category/${category.slug}`}>
                   <a>
                     <div className="category-box">
-                      <div className="img-placee">
-                        <img
-                          src={getImageUrl(category.image)}
-                          alt={Thumbnail for ${category.name} featured category}
-                          loading="lazy"
-                        />
-                      </div>
+                      <img
+                        src={getImageUrl(category.image)}
+                        alt={`Thumbnail for ${category.name}`}
+                        loading="lazy"
+                      />
                       <h4>{category.name}</h4>
                     </div>
                   </a>
@@ -220,84 +146,58 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
             </div>
           </div>
         </section>
-        {/* featured categories section end */}
 
-        {/* collections section start */}
-        {collections && collections.length > 0 && collections.map((collection, collectionIndex) => (
-          collection && collection.products && collection.products.length > 0 && (
-            <section key={collectionIndex} className="collection-section-modern">
-              <div className="container">
-                <div className="collection-header">
-                  <h2>{collection.name}</h2>
-                  {collection.slug && (
-                    <Link href={/product/collection/${collection.slug}}>
-                      <a className="view-all-link">
-                        <span>View All</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2"
-                          stroke="currentColor"
-                          width="18"
-                          height="18"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                          />
-                        </svg>
-                      </a>
-                    </Link>
-                  )}
-                </div>
-                <div className="collection-products-grid">
-                  {collection.products
-                    .filter((item, index) => item && index < 4)
-                    .map(({ product, reviewCount, ratingAverage }) => (
-                      <ProductCard1
-                        key={product?.id}
-                        id={product?.id}
-                        imgUrl={product?.featured}
-                        title={product?.productName}
-                        price={product?.price}
-                        rating={ratingAverage || 0}
-                        noOfRating={reviewCount || 0}
-                      />
-                    ))}
-                </div>
+        {/* collections */}
+        {collections?.map((collection, i) => (
+          <section key={i} className="collection-section-modern">
+            <div className="container">
+              <div className="collection-header">
+                <h2>{collection.name}</h2>
+
+                <Link href={`/product/collection/${collection.slug}`}>
+                  <a>View All</a>
+                </Link>
               </div>
-            </section>
-          )
+
+              <div className="collection-products-grid">
+                {collection.products.slice(0, 4).map(({ product, reviewCount, ratingAverage }) => (
+                  <ProductCard1
+                    key={product?.id}
+                    id={product?.id}
+                    imgUrl={product?.featured}
+                    title={product?.productName}
+                    price={product?.price}
+                    rating={ratingAverage || 0}
+                    noOfRating={reviewCount || 0}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
         ))}
-        {/* collections section end */}
-
-
       </main>
     </>
   );
 };
+
 HomePage.layout = AppLayout;
 
 export async function getStaticProps() {
   let categories = [];
   let clients = [];
-  let count = null;
   let collections = [];
-
   let featuredCategories = [];
+
   try {
     categories = await useAllProductCategories();
     categories = JSON.parse(JSON.stringify(categories));
-    featuredCategories = categories.filter((category) => category.isFeatured);
-  } catch (e) {
-    console.error('[index][getStaticProps] Categories error:', e.message || e);
-  }
+    featuredCategories = categories.filter((c) => c.isFeatured);
+  } catch (e) {}
+
   try {
-    let { data } = await client.query({
+    const { data } = await client.query({
       query: gql`
-        query getFeaturedClients {
+        query {
           getAllFeaturedClients {
             id
             title: clientName
@@ -307,14 +207,12 @@ export async function getStaticProps() {
       `,
     });
     clients = data.getAllFeaturedClients;
-  } catch (e) {
-    console.error('[index][getStaticProps] Clients error:', e.message || e);
-  }
+  } catch (e) {}
 
   try {
-    let { data } = await client.query({
+    const { data } = await client.query({
       query: gql`
-        query getCollectionWiseProduct {
+        query {
           getAllPopulatedCollection {
             name
             slug
@@ -322,12 +220,7 @@ export async function getStaticProps() {
               product {
                 id: slug
                 productName
-                discount
                 featured
-                populatedCategory {
-                  name
-                  icon
-                }
               }
               reviewCount
               ratingAverage
@@ -337,9 +230,7 @@ export async function getStaticProps() {
       `,
     });
     collections = data.getAllPopulatedCollection;
-  } catch (e) {
-    console.error('[index][getStaticProps] Collections error:', e.message || e);
-  }
+  } catch (e) {}
 
   return {
     props: {
@@ -347,13 +238,10 @@ export async function getStaticProps() {
       categories,
       featuredCategories,
       collections,
-      count,
     },
     revalidate: 40,
   };
 }
 
 export default HomePage;
-
-
 https://github.com/tshamim/nobarun-front-shamim/edit/main/src/pages/index.tsx
