@@ -38,7 +38,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
         {/* Open Graph */}
         <meta property="og:title" content="Nobarun International - Proven Partner Since 2017" />
         <meta property="og:description" content="Supplier of digital safety & security products, commercial kitchen equipment, and supermarket solutions in Bangladesh since 2017." />
-        <meta property="og:url" content="https://nobarun.com" />
+        <meta property="og:url" content="https://www.nobarunbd.com" />
 
         {/* Twitter */}
         <meta name="twitter:title" content="Nobarun International - Proven Partner Since 2017" />
