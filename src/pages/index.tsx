@@ -25,8 +25,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
   return (
     <>
       <Head>
-        <title>Nobarun International - Proven Partner Since 2017</title>
-
+        <title>Nobarun International || Proven Partner Since 2017</title>
         <meta
           name="description"
           content="Supplier of Digital Safety & Security Products, Supermarket Equipment, Slaughterhouse Equipment, and Commercial Kitchen Equipment in Bangladesh since 2017."
@@ -38,9 +37,9 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
         />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Nobarun International - Proven Partner Since 2017" />
-        <meta property="og:description" content="Supplier of digital safety & security products, commercial kitchen equipment, and supermarket solutions in Bangladesh since 2017." />
-        <meta property="og:url" content="https://www.nobarunbd.com/" />
+        <meta property="og:title" content="Nobarun International - Commercial Kitchen & Security Equipment" />
+        <meta property="og:description" content="Leading supplier of digital safety & security products, commercial kitchen equipment, and supermarket solutions in Bangladesh since 2017." />
+        <meta property="og:url" content="https://nobarunbd.com" />
         <meta property="og:image" content="https://www.nobarunbd.com/cover.jpeg" />
         <meta property="og:type" content="website" />
 
@@ -51,7 +50,7 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
         <meta name="twitter:image" content="https://www.nobarunbd.com/cover.jpeg" />
 
         {/* Canonical */}
-        <link rel="canonical" href="https://www.nobarunbd.com/" />
+        <link rel="canonical" href="https://nobarunbd.com" />
       </Head>
 
       <main>
@@ -244,4 +243,3 @@ export async function getStaticProps() {
 }
 
 export default HomePage;
-https://github.com/tshamim/nobarun-front-shamim/edit/main/src/pages/index.tsx

@@ -30,11 +30,11 @@ const CollectionsPage = ({
   const isTablet = width < 1025;
 
   // Create SEO-friendly title and description
-  const pageTitle = collectionDescription 
+  const pageTitle = collectionDescription
     ? `${collectionName} - ${collectionDescription} | Nobarun International`
     : `${collectionName} Collection - Products Price in Bangladesh | Nobarun International`;
-  
-  const pageDescription = collectionDescription 
+
+  const pageDescription = collectionDescription
     ? `${collectionDescription} Browse ${products.length} products in our ${collectionName} collection at Nobarun International.`
     : `Explore ${products.length} quality products in our ${collectionName} collection. Best prices in Bangladesh with expert service from Nobarun International.`;
 
@@ -43,22 +43,22 @@ const CollectionsPage = ({
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
-        <meta 
-          name="keywords" 
-          content={`${collectionName}, ${collectionName} Bangladesh, ${collectionName} price, commercial equipment, Nobarun International`} 
+        <meta
+          name="keywords"
+          content={`${collectionName}, ${collectionName} Bangladesh, ${collectionName} price, commercial equipment, Nobarun International`}
         />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
-        <meta property="og:url" content={`https://nobarun.com/product/collection/${collectionName.toLowerCase().replace(/\s+/g, '-')}`} />
+        <meta property="og:url" content={`https://nobarunbd.com/product/collection/${collectionName.toLowerCase().replace(/\s+/g, '-')}`} />
         <meta property="og:type" content="website" />
-        
+
         {/* Twitter */}
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
-        
-        <link rel="canonical" href={`https://nobarun.com/product/collection/${collectionName.toLowerCase().replace(/\s+/g, '-')}`} />
+
+        <link rel="canonical" href={`https://nobarunbd.com/product/collection/${collectionName.toLowerCase().replace(/\s+/g, '-')}`} />
       </Head>
 
       <Box pt="20px" mb="5rem">
@@ -126,12 +126,12 @@ CollectionsPage.layout = OtherLayout;
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const slug = context.params.collectionSlug;
-  
+
   try {
     const data = await useProductsByCollection(slug);
-    
+
     const count = await useProductCount();
-    
+
     if (data && data.products) {
       // Transform products to match category page format
       const transformedProducts = data.products.products.map((product) => ({
