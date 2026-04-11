@@ -121,22 +121,33 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
             </div>
           </div>
         </section>
-
         {/* featured categories */}
         <section className="featured-categories-section">
           <div className="container">
-            <h2>Featured Categories</h2>
+            <div className="featured-categories-heading">
+              <h2>Featured Categories</h2>
+              <Link href="/categories">
+                <a className="featured-categories-view-all">
+                  View all
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </a>
+              </Link>
+            </div>
 
             <div className="category-main-wrap">
               {featuredCategories.map((category, index) => (
                 <Link key={index} href={`/category/${category.slug}`}>
                   <a>
                     <div className="category-box">
-                      <img
-                        src={getImageUrl(category.image)}
-                        alt={`Thumbnail for ${category.name}`}
-                        loading="lazy"
-                      />
+                      <div className="img-placee">
+                        <img
+                          src={getImageUrl(category.image)}
+                          alt={`Thumbnail for ${category.name}`}
+                          loading="lazy"
+                        />
+                      </div>
                       <h4>{category.name}</h4>
                     </div>
                   </a>

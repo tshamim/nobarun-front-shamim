@@ -221,11 +221,11 @@ const ProductDetails = ({ schema, slug, product, reviews, reviewCount }) => {
             />
           )}
           {/* {!isTabPhone && <Ammenities contact={product?.contact} />} */}
-          {product?.features && (
-            <SpecialFeatures features={product?.features} />
-          )}
           {product?.specifications && (
             <Specifications specifications={product?.specifications} />
+          )}
+          {product?.features && (
+            <SpecialFeatures features={product?.features} />
           )}
           {product?.relatedProducts && product?.relatedProducts.length > 0 && (
             <RelatedProducts products={product?.relatedProducts} />
