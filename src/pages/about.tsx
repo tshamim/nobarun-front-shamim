@@ -272,7 +272,7 @@ const ProductSearchResult = () => {
             Looking to start or upgrade your business? Contact Nobarun International today for complete equipment solutions and professional support you can trust.
           </p>
           <a
-            href="/contact-us"
+            href="/contact"
             style={{
               display: 'inline-block',
               background: 'linear-gradient(135deg,#1ca346 0%,#2db84f 50%,#6fba1a 100%)',
@@ -300,7 +300,7 @@ export async function getStaticProps() {
   try {
     categories = await useAllProductCategories();
     categories = JSON.parse(JSON.stringify(categories));
-  } catch (e) {}
+  } catch (e) { }
   try {
     count = await useProductCount();
   } catch (e) {
