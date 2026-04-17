@@ -1,6 +1,6 @@
 import Box from '@component/Box';
 import OtherLayout from '@component/layout/OtherLayout';
-import { H1, Paragraph } from '@component/Typography';
+import { H1, H3, Paragraph } from '@component/Typography';
 import useAllProductCategories from '@hook/Home/useAllProductCategories';
 import useProductCount from '@hook/useNoOfProduct';
 import useWindowSize from '@hook/useWindowSize';
@@ -62,7 +62,7 @@ const ProductSearchResult = () => {
         />
       </Head>
 
-      <Box p="20px" mb="70px">
+      <Box p="20px" mb="70px" maxWidth="1200px" mx="auto">
         <H1
           textAlign="center"
           mt={isTablet ? '35px' : ''}
@@ -71,169 +71,134 @@ const ProductSearchResult = () => {
         >
           About us
         </H1>
-        <Paragraph
+
+        <Box
           mb="4rem"
-          fontSize="2.5rem"
-          lineHeight="3.5rem"
-          textAlign="justify"
-          fontWeight="600"
-          color="#7D879C"
+          color="#555"
         >
-          Everything is changing nowadays very fast because time is elapsing.
-          Starting from the lifestyle, we see massive improvements in the
-          business along with behavior as well. Coping up with this flow, we
-          have tried something beyond ordinary which would bring the business to
-          a new level. A goal can be achieved when you have a lot of things on
-          your plate! This is the reason why we came up re-establishing and
-          reforming ourselves as Nobarun International in 2017, which has been
-          operating under the name of Projuktishop.com Our objective was always
-          to hold a sanctuary in the minds of entrepreneurs.
-        </Paragraph>
-        <Paragraph
-          mb="4rem"
-          fontSize="2.5rem"
-          lineHeight="3.5rem"
-          textAlign="justify"
-          fontWeight="600"
-          color="#7D879C"
-        >
-          An office, factory or a corporate house needs a variety of equipment,
-          which is why you have to undergo a lot of hassles to find the right
-          vendors, which consumes a lot of time and finally the product you are
-          going to get may have no assurance about the warranty. To evade the
-          complications, we Nobarun International are here where you can get all
-          the equipment with a hassle-free experience.
-        </Paragraph>
-        <Paragraph
-          mb="4rem"
-          fontSize="2.5rem"
-          lineHeight="3.5rem"
-          textAlign="justify"
-          fontWeight="600"
-          color="#7D879C"
-        >
-          Basically we work and provide service within 3-4 parts. Firstly,
-          current state Bangladesh is in, our life has become unstable without
-          the safety security systems.With that in mind, we have arch gates,
-          luggage scanner, metal detector, anti-shop lifting, flap barrier,
-          turnstile gates, safety bollards and relevant security equipment for
-          use. We also have wide range of road traffic safety cones like convex
-          mirror, parking barriers, traffic cones, lane divider, rubber speed
-          breakers and so on to reduce accidents and improve safety on the
-          roads.
-        </Paragraph>
-        <Paragraph
-          mb="4rem"
-          fontSize="2.5rem"
-          lineHeight="3.5rem"
-          textAlign="justify"
-          fontWeight="600"
-          color="#7D879C"
-        >
-          Moreover, if you are going to open a supermarket or super shop, we can
-          provide all the equipment starting from the plan and designs to all
-          the products. You will get all the products like gondola racks,
-          commercial freezer, chiller, fish cutting machine, meat grinding
-          machine, POS system at the counter as well from us with warranty.
-        </Paragraph>
-        <Paragraph
-          mb="4rem"
-          fontSize="2.5rem"
-          lineHeight="3.5rem"
-          textAlign="justify"
-          fontWeight="600"
-          color="#7D879C"
-        >
-          A restaurant’s kitchenis its opportunity to stand out and make a
-          lasting first impression. Nobarun International is the global name for
-          unique and creative goods. It is home to a universe of special,
-          extraordinary appliances and gadgets, for unique masterpieces.Launched
-          in 2017, Nobarun International offers a wide range of kitchen
-          appliances starting from deep fryers, dough mixers, pizza ovens,
-          commercial bakery ovens, juice dispensers, juice extractors or juice
-          makers, food warmers, grill machines, shawarma machines, ice cream
-          machines, coffee maker machines,popcorn makers and all the commercial
-          kitchen equipment is there that a restaurant, food court or a place
-          relevant to the food needs. Not only for a restaurant,these commercial
-          appliances can be used in a commercial place, airport, food court,
-          workplace - anywhere. You can also get the technically advanced
-          electronics like bike security systems and so on. We decorated the
-          product line in a way that it catches the attention of any customer’s
-          unique sense of style. Our appliances and accessories are carefully
-          curated to provide our customers with the latest models and
-          technologies. To keep our customers up-to-date we introduce new
-          arrivals in a week, as well as offer the best picks to help any
-          indecisive shoppers. In terms of Bangladesh, the demand of commercial
-          kitchen appliances are increasing day by day due to the number of
-          restaurants and food courts are increasing. So you will need some
-          high-quality kitchen accessories with a quality service; then we are
-          right here! Just give a call, and then we will be knocking at your
-          door! With our variety of top notch brand items and the very best
-          equipment for you, Nobarun International provides all the equipment
-          and components that you will need in your restaurant, coffee shop or
-          food court.
-        </Paragraph>
-        <Paragraph
-          mb="4rem"
-          fontSize="2.5rem"
-          lineHeight="3.5rem"
-          textAlign="justify"
-          fontWeight="600"
-          color="#7D879C"
-        >
-          Beside our product lines, we work for to decorate a new and old
-          restaurant. We can import products or equipment from abroad if
-          necessary within a short period of time. We are such a type of company
-          that will be a trustworthy name for you related to business. We are
-          developed to provide all our services, equipment and gadgets according
-          to your requirements. We will provide you with an idea about the pros
-          and cons of a particular equipment or gadget so that you can choose on
-          your own or what you need. If you cannot choose, then don’t worry! You
-          can leave it on us. We are going to provide the best for you according
-          to your budget and space.
-        </Paragraph>
-        <Paragraph
-          mb="4rem"
-          fontSize="2.5rem"
-          lineHeight="3.5rem"
-          textAlign="justify"
-          fontWeight="600"
-          color="#7D879C"
-        >
-          Nobarun International is an owner's best place to make the ideal
-          investment and it will worth every penny.Nobarun International strives
-          to make every purchase a positive experience. Our top priorities are
-          excellent customer service, exceptionally quick order processing,
-          ultra-fast delivering times, and hassle-free experience with lifetime
-          service.
-        </Paragraph>
-        <Paragraph
-          mb="4rem"
-          fontSize="2.5rem"
-          lineHeight="3.5rem"
-          textAlign="justify"
-          fontWeight="600"
-          color="#7D879C"
-        >
-          We honor your feedback, whether it is positive or negative and we are
-          continuously working to enhance your experience.As a company, we
-          strive to lead with our guiding principles and to help spread ideas of
-          sustainability and responsibility whose impact can reach far beyond
-          our own business.
-        </Paragraph>
-        <Paragraph
-          mb="4rem"
-          fontSize="2.5rem"
-          lineHeight="3.5rem"
-          textAlign="justify"
-          fontWeight="600"
-          color="#7D879C"
-        >
-          If you are a first-time visitor or long-standing customer, we hope you
-          will be thrilled with every aspect of Nobarun International shopping
-          experience.We ask for your blessings so that we can go ahead through
-          honesty and by working hard to reach our goal!
-        </Paragraph>
+          <H3 fontSize="2.5rem" mb="1rem" mt="2rem" color="#2B3445">Nobarun International | Proven Partner Since 2017</H3>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1.5rem" textAlign="justify">
+            Nobarun International is a leading supplier and solution provider of commercial, industrial, and retail equipment in Bangladesh. Since 2017, we have been supporting businesses with reliable products, expert guidance, and complete project solutions helping them start, scale, and operate efficiently.
+          </Paragraph>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1.5rem" textAlign="justify">
+            With over 8 years of experience, 2500+ satisfied clients, and 500+ successful projects, we have built a strong reputation for delivering quality, consistency, and dependable service across multiple industries.
+          </Paragraph>
+          
+          <H3 fontSize="2.5rem" mb="1rem" mt="2rem" color="#2B3445">What We Do</H3>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1.5rem" textAlign="justify">
+            We provide end-to-end solutions including product supply, installation, project setup, import support, and after-sales service. Our goal is to make your entire setup process smooth, efficient, and hassle-free.
+          </Paragraph>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1rem">
+            Our key product categories include:
+          </Paragraph>
+          <ul style={{ fontSize: '1.6rem', lineHeight: '1.8', marginBottom: '1.5rem', paddingLeft: '2rem' }}>
+            <li>Commercial Kitchen & Restaurant Equipment</li>
+            <li>Refrigeration & Cold Storage Solutions</li>
+            <li>Ice Cream Business Equipment & Setup</li>
+            <li>Supermarket & Retail Equipment</li>
+            <li>Safety & Security System Products</li>
+            <li>Car Parking & Road Safety Equipment</li>
+            <li>Industrial & Warehouse Solutions</li>
+            <li>Slaughterhouse & Meat Processing Equipment</li>
+          </ul>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1.5rem" textAlign="justify">
+            Whether you are starting a new business or upgrading an existing one, we deliver solutions tailored to your exact requirements.
+          </Paragraph>
+
+          <H3 fontSize="2.5rem" mb="1rem" mt="2rem" color="#2B3445">Special Focus Areas</H3>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1rem">
+            We specialize in delivering complete solutions across a wide range of industries, including:
+          </Paragraph>
+          <ul style={{ fontSize: '1.6rem', lineHeight: '1.8', marginBottom: '1.5rem', paddingLeft: '2rem' }}>
+            <li>Commercial Kitchen Equipment</li>
+            <li>Refrigeration & Cold Storage Systems</li>
+            <li>Ice Cream Business Setup</li>
+            <li>Supermarket & Retail Equipment</li>
+            <li>Safety & Security Systems</li>
+            <li>Car Parking & Road Safety Equipment</li>
+            <li>Industrial & Warehouse Solutions</li>
+            <li>Slaughterhouse & Meat Processing Equipment</li>
+            <li>Food Business Setup Solutions</li>
+          </ul>
+
+          <H3 fontSize="2.5rem" mb="1rem" mt="2rem" color="#2B3445">Who We Work With</H3>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1rem">
+            We proudly serve a diverse range of clients across multiple industries in Bangladesh, including:
+          </Paragraph>
+          <Box display="flex" flexWrap="wrap" mb="1.5rem">
+            <ul style={{ fontSize: '1.6rem', lineHeight: '1.8', paddingLeft: '2rem', flex: '1 1 300px' }}>
+              <li>Agro Processing & Food Industry</li>
+              <li>Banks & Financial Institutions</li>
+              <li>Brands & Lifestyle Businesses</li>
+              <li>Defense & National Institutions</li>
+              <li>Educational Institutions</li>
+              <li>Engineering & Infrastructure Firms</li>
+              <li>Food & Beverage Businesses</li>
+              <li>Garments & Textile Industry</li>
+              <li>Government & Semi-Government Organizations</li>
+              <li>Group of Companies & Corporate Offices</li>
+            </ul>
+            <ul style={{ fontSize: '1.6rem', lineHeight: '1.8', paddingLeft: '2rem', flex: '1 1 300px' }}>
+              <li>Hospitals & Healthcare Institutions</li>
+              <li>Hotels & Allied Services</li>
+              <li>Resorts & Tourism & Hospitality</li>
+              <li>Restaurant & Related Businesses</li>
+              <li>Super Shop & Departmental Stores</li>
+              <li>Real Estate Developers & Builders</li>
+              <li>International & Multinational Organizations</li>
+              <li>Software, IT & Digital Solution Companies</li>
+              <li>Others & Customized Project Clients</li>
+            </ul>
+          </Box>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1.5rem" textAlign="justify">
+            We also provide complete support for tender-based projects, including BOQ preparation, sourcing, import handling, and full project execution.
+          </Paragraph>
+
+          <H3 fontSize="2.5rem" mb="1rem" mt="2rem" color="#2B3445">Why Choose Nobarun International</H3>
+          <ul style={{ fontSize: '1.6rem', lineHeight: '1.8', marginBottom: '1.5rem', paddingLeft: '2rem' }}>
+            <li><b>Proven Experience:</b> 8+ years in the industry</li>
+            <li><b>Trusted Nationwide:</b> 2500+ clients served</li>
+            <li><b>Project Expertise:</b> 500+ successful project deliveries</li>
+            <li><b>Smart & Experienced Sales Team:</b> Skilled professionals to guide you properly</li>
+            <li><b>Quick Response Commitment:</b> Fast support whenever you need it</li>
+            <li><b>End-to-End Service:</b> From planning to installation and after-sales</li>
+            <li><b>Flexible Payment Options:</b> Multiple bank channels available</li>
+            <li><b>Nationwide Delivery:</b> Products and projects delivered across Bangladesh</li>
+            <li><b>Strong Import Capability:</b> Reliable international sourcing</li>
+          </ul>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1.5rem" textAlign="justify">
+            We are committed to providing practical solutions, not just products—ensuring long-term value for your business.
+          </Paragraph>
+
+          <H3 fontSize="2.5rem" mb="1rem" mt="2rem" color="#2B3445">Our Brand</H3>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1.5rem" textAlign="justify">
+            We also operate our own brand <b>“Coffeewala”</b>, offering coffee and tea vending machine solutions a smart and profitable way to run beverage businesses with ease and efficiency.
+          </Paragraph>
+
+          <H3 fontSize="2.5rem" mb="1rem" mt="2rem" color="#2B3445">Our Locations</H3>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1rem">
+            <b>Corporate Office:</b><br />
+            H#199 (1st Floor), R#01, Mohakhali DOHS, Dhaka, Bangladesh
+          </Paragraph>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1.5rem">
+            <b>Workshop:</b><br />
+            Safa Green City Gate, Nimtoli Road, Keraniganj, Dhaka
+          </Paragraph>
+
+          <H3 fontSize="2.5rem" mb="1rem" mt="2rem" color="#2B3445">Our Commitment</H3>
+          <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1.5rem" textAlign="justify">
+            At Nobarun International, we believe in building long-term partnerships through quality, honesty, and reliable service. Every project we handle reflects our dedication to helping our clients succeed with confidence.
+          </Paragraph>
+
+          <Box mt="4rem" p="3rem" backgroundColor="#f6f9fc" borderRadius="10px" textAlign="center" boxShadow="0px 5px 15px rgba(0,0,0,0.05)">
+            <H3 fontSize="2.5rem" mb="1rem" color="#2B3445">Get in Touch</H3>
+            <Paragraph fontSize="1.6rem" lineHeight="1.8" mb="1.5rem">
+              Looking to start or upgrade your business?<br />
+              Contact Nobarun International today for complete equipment solutions and professional support you can trust.
+            </Paragraph>
+          </Box>
+
+        </Box>
       </Box>
     </>
   );
