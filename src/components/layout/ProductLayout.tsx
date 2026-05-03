@@ -35,7 +35,7 @@ const ProductLayout: React.FC<Props> = ({
           <Link href="/">
             <a>
               <Image
-                src="/assets/images/logo.svg"
+                src="/assets/images/nobarunbd.svg"
                 alt="logo"
                 height="58px"
                 width="200px"
