@@ -35,10 +35,11 @@ const ProductLayout: React.FC<Props> = ({
           <Link href="/">
             <a>
               <Image
-                src="/assets/images/nobarunbd.svg"
+                src="/assets/images/nobarun-3d-logo.png"
                 alt="logo"
                 height="58px"
-                width="200px"
+                width="280px"
+                maxWidth="280px"
               />
             </a>
           </Link>

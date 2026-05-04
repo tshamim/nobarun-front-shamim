@@ -12,8 +12,6 @@ const Image = styled.img<SpaceProps & BorderProps & LayoutProps>`
   ${space}
   ${border}
   ${layout}
-  max-height: 150px;
-  max-width: 200px;
 `;
 
 import { getCDNOptimizedUrl } from '../utils/cdnUtils';
