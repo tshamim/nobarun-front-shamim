@@ -97,8 +97,11 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
               <h2>Our Clients</h2>
 
               <Link href="/clients">
-                <a>
+                <a className="view-all-link">
                   <span>View All</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
                 </a>
               </Link>
             </div>
@@ -165,7 +168,12 @@ const HomePage = ({ clients, categories, featuredCategories, collections }) => {
                 <h2>{collection.name}</h2>
 
                 <Link href={`/product/collection/${collection.slug}`}>
-                  <a>View All</a>
+                  <a className="view-all-link">
+                    View All
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                  </a>
                 </Link>
               </div>
 
