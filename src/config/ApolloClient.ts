@@ -9,6 +9,12 @@ const apiUrl = isServer
 const client = new ApolloClient({
   uri: apiUrl,
   cache: new InMemoryCache(),
+  defaultOptions: isServer
+    ? {
+        query: { fetchPolicy: "no-cache", errorPolicy: "all" },
+        watchQuery: { fetchPolicy: "no-cache", errorPolicy: "all" },
+      }
+    : {},
 });
 
 export default client;
