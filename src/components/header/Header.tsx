@@ -52,9 +52,10 @@ const Header: React.FC<HeaderProps> = ({ count, categories, className }) => {
                 <Image
                   src="/assets/images/nobarun-3d-logo.png"
                   alt="logo"
-                  height="58px"
-                  width="270px"
-                  maxWidth="280px"
+                  height="66px"
+                  width="254px"
+                  maxWidth="279px"
+                  marginTop="-4px"
                 />
               </a>
             </Link>
