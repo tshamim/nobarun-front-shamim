@@ -17,13 +17,33 @@ const Slider: React.FC<{ categories: any[] }> = ({ categories }) => {
     setHeight(rect.height);
   }, [heroContainer?.current?.offsetHeight]);
 
+  const banners = isTablet
+    ? [
+        '/assets/images/banners/mobile/slider-1.webp',
+        '/assets/images/banners/mobile/slider-2.webp',
+        '/assets/images/banners/mobile/slider-3.webp',
+        '/assets/images/banners/mobile/slider-4.webp',
+        '/assets/images/banners/mobile/slider-5.webp',
+        '/assets/images/banners/mobile/slider-6.webp',
+        '/assets/images/banners/mobile/slider-7.webp',
+      ]
+    : [
+        '/assets/images/banners/slider-1.webp',
+        '/assets/images/banners/slider-2.webp',
+        '/assets/images/banners/slider-3.webp',
+        '/assets/images/banners/slider-4.webp',
+        '/assets/images/banners/slider-5.webp',
+        '/assets/images/banners/slider-6.webp',
+        '/assets/images/banners/slider-7.webp',
+      ];
+
   return (
     <Fragment>
       <Navbar navListOpen={true} height={height} categories={categories} />
       <Box bg="gray.white" mt={isTablet ? '2.5rem' : ''}>
         <Container ref={heroContainer}>
           <Carousel
-            totalSlides={6}
+            totalSlides={7}
             visibleSlides={1}
             infinite={true}
             autoPlay={true}
@@ -32,14 +52,7 @@ const Slider: React.FC<{ categories: any[] }> = ({ categories }) => {
             dotClass="hero-slider"
             showArrow={false}
             spacing="0px">
-            {[
-              '/assets/images/banners/1 Bakery-Equipment-nobarun.webp',
-              '/assets/images/banners/2 Slaughterhouse-Equipment-4.webp',
-              '/assets/images/banners/3 Supermarket-Equipment-with-logo.webp',
-              '/assets/images/banners/4 Slaughterhouse-Equipment.webp',
-              '/assets/images/banners/5 Metal-Detector-&-Scanning-System.webp',
-              '/assets/images/banners/6-Slaughterhouse-Equipment-nobarun.webp',
-            ].map((link) => (
+            {banners.map((link) => (
               <CarouselCard1 link={link} key={link} />
             ))}
           </Carousel>
